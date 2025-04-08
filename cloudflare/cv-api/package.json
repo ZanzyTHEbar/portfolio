@@ -1,0 +1,25 @@
+{
+  "name": "cv-api",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker to serve CV data as JSON",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler publish",
+    "upload-cv": "node scripts/upload-cv.js",
+    "setup-kv": "wrangler kv:namespace create CV_DATA",
+    "setup-kv-preview": "wrangler kv:namespace create CV_DATA --preview"
+  },
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "cv",
+    "portfolio"
+  ],
+  "author": "Zacariah Heim",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

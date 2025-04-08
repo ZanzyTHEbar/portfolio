@@ -1,34 +1,91 @@
-## Usage
+# Zacariah Heim Portfolio
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+A modern portfolio website built with SolidJS and TailwindCSS.
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+## Features
 
-```bash
-$ npm install # or pnpm install or yarn install
+- Responsive design with mobile-friendly navigation
+- Modern UI with subtle animations
+- Contact form with validation using solid-form-handler
+- Dynamic content generation from CV data
+- Optimized for performance with lazy loading
+- Cloudflare Pages integration for form handling
+
+## Dynamic CV Data Integration
+
+This project uses a Cloudflare Worker to dynamically serve CV data to the portfolio website. This approach eliminates the need for a build step when CV data changes.
+
+### How It Works
+
+1. **Cloudflare Worker**: A serverless function that serves CV data as JSON
+2. **Client-Side Fetching**: The portfolio fetches data from the Worker at runtime
+3. **Automatic Updates**: The portfolio checks for updates periodically
+
+This architecture provides several benefits:
+
+- No rebuild needed when CV data changes
+- Instant updates to the portfolio when CV is updated
+- Reduced build times and simplified deployment
+- Better separation of content and presentation
+
+### Configuration
+
+The portfolio is configured to fetch data from the Cloudflare Worker using environment variables:
+
+```env
+VITE_CV_API_URL=https://cv-api.yourdomain.workers.dev
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+### Cloudflare Worker
 
-## Available Scripts
+The Cloudflare Worker code is located in the `cloudflare/cv-api` directory. It provides the following endpoints:
 
-In the project directory, you can run:
+- `/cv.json` - Raw CV data
+- `/portfolio-data.json` - Transformed portfolio data
+- `/version` - Version information
 
-### `npm run dev` or `npm start`
+To deploy the Worker:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+cd cloudflare/cv-api
+npm install
+npm run deploy
+```
 
-The page will reload if you make edits.<br>
+### Updating CV Data
 
-### `npm run build`
+To update your CV data:
 
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
+1. Edit your CV JSON file
+2. Upload it to the Cloudflare Worker:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```bash
+cd cloudflare/cv-api
+npm run upload-cv path/to/cv.json
+```
+
+The portfolio will automatically fetch the updated data on the next page load or when the periodic update check runs.
+
+## Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Analyze bundle
+pnpm analyze
+```
 
 ## Deployment
 
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+This site is configured for deployment on Cloudflare Pages with serverless functions for form handling.
+
+## License
+
+MIT

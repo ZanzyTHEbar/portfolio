@@ -1,0 +1,296 @@
+{
+  "basics": {
+    "name": "Zacariah Heim",
+    "label": "Tech Innovator | AI Consultant | Systems Architect",
+    "email": "zacariahheim@gmail.com",
+    "phone": "(555) 123-4567",
+    "website": "https://zacariahheim.com",
+    "summary": "Experienced technology leader with expertise in AI systems, cloud architecture, and enterprise solutions. Passionate about leveraging cutting-edge technology to solve complex business problems.",
+    "location": {
+      "city": "San Francisco",
+      "countryCode": "US",
+      "region": "California"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "zacariahheim",
+        "url": "https://linkedin.com/in/zacariahheim"
+      },
+      {
+        "network": "GitHub",
+        "username": "zacheim",
+        "url": "https://github.com/zacheim"
+      },
+      {
+        "network": "Twitter",
+        "username": "zacheim",
+        "url": "https://twitter.com/zacheim"
+      }
+    ]
+  },
+  "workExperience": [
+    {
+      "company": "TechVision Solutions",
+      "position": "Lead AI Architect",
+      "website": "https://techvisionsolutions.com",
+      "startDate": "2023",
+      "endDate": null,
+      "summary": "Leading the development of enterprise AI solutions, focusing on scalable machine learning systems and innovative data architectures.",
+      "highlights": [
+        "Architected a distributed ML pipeline processing 1M+ events/day",
+        "Led a team of 12 engineers across 3 continents",
+        "Reduced inference costs by 60% through optimization"
+      ]
+    },
+    {
+      "company": "CloudScale Systems",
+      "position": "Senior Systems Engineer",
+      "website": "https://cloudscalesystems.com",
+      "startDate": "2020",
+      "endDate": "2023",
+      "summary": "Designed and implemented cloud-native solutions for Fortune 500 clients, specializing in scalable microservices architectures.",
+      "highlights": [
+        "Migrated legacy systems to cloud-native architecture",
+        "Implemented zero-downtime deployment strategy",
+        "Reduced operational costs by 45%"
+      ]
+    },
+    {
+      "company": "InnovateNow Tech",
+      "position": "DevOps Consultant",
+      "website": "https://innovatenow.tech",
+      "startDate": "2018",
+      "endDate": "2020",
+      "summary": "Provided strategic DevOps consultation to startups and enterprises, focusing on automation and continuous delivery.",
+      "highlights": [
+        "Reduced deployment time from days to minutes",
+        "Implemented security-first CI/CD pipelines",
+        "Achieved 99.99% uptime for critical systems"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Stanford University",
+      "area": "Computer Science",
+      "studyType": "Master of Science",
+      "startDate": "2016",
+      "endDate": "2018",
+      "gpa": "3.9",
+      "courses": [
+        "Advanced Machine Learning",
+        "Distributed Systems",
+        "Cloud Computing",
+        "AI Ethics"
+      ]
+    },
+    {
+      "institution": "University of California, Berkeley",
+      "area": "Computer Engineering",
+      "studyType": "Bachelor of Science",
+      "startDate": "2012",
+      "endDate": "2016",
+      "gpa": "3.8",
+      "courses": [
+        "Data Structures",
+        "Algorithms",
+        "Computer Architecture",
+        "Operating Systems"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Deep Learning",
+      "level": "Expert",
+      "category": "AI & Machine Learning"
+    },
+    {
+      "name": "NLP",
+      "level": "Expert",
+      "category": "AI & Machine Learning"
+    },
+    {
+      "name": "Computer Vision",
+      "level": "Advanced",
+      "category": "AI & Machine Learning"
+    },
+    {
+      "name": "MLOps",
+      "level": "Expert",
+      "category": "AI & Machine Learning"
+    },
+    {
+      "name": "TensorFlow",
+      "level": "Expert",
+      "category": "AI & Machine Learning"
+    },
+    {
+      "name": "AWS Architecture",
+      "level": "Expert",
+      "category": "Cloud & DevOps"
+    },
+    {
+      "name": "Kubernetes",
+      "level": "Expert",
+      "category": "Cloud & DevOps"
+    },
+    {
+      "name": "CI/CD",
+      "level": "Expert",
+      "category": "Cloud & DevOps"
+    },
+    {
+      "name": "Infrastructure as Code",
+      "level": "Advanced",
+      "category": "Cloud & DevOps"
+    },
+    {
+      "name": "Microservices",
+      "level": "Expert",
+      "category": "Cloud & DevOps"
+    },
+    {
+      "name": "Distributed Systems",
+      "level": "Expert",
+      "category": "System Design"
+    },
+    {
+      "name": "API Design",
+      "level": "Expert",
+      "category": "System Design"
+    },
+    {
+      "name": "Scalable Architecture",
+      "level": "Expert",
+      "category": "System Design"
+    },
+    {
+      "name": "Security",
+      "level": "Advanced",
+      "category": "System Design"
+    },
+    {
+      "name": "Performance",
+      "level": "Expert",
+      "category": "System Design"
+    }
+  ],
+  "projects": [
+    {
+      "name": "AI-Driven Analytics Platform",
+      "description": "Enterprise-scale analytics platform leveraging machine learning for real-time insights and predictive modeling.",
+      "highlights": [
+        "Processed over 10TB of data daily",
+        "Reduced analysis time by 85%",
+        "Implemented advanced anomaly detection"
+      ],
+      "keywords": [
+        "Python",
+        "TensorFlow",
+        "AWS",
+        "React",
+        "AI",
+        "Machine Learning"
+      ],
+      "startDate": "2022",
+      "endDate": "2023",
+      "url": "https://github.com/zacheim/ai-analytics",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+    },
+    {
+      "name": "Cloud Infrastructure Automation",
+      "description": "Automated cloud infrastructure deployment system with self-healing capabilities and intelligent scaling.",
+      "highlights": [
+        "Reduced deployment time by 90%",
+        "Implemented infrastructure as code",
+        "Automated scaling based on ML predictions"
+      ],
+      "keywords": [
+        "Terraform",
+        "Kubernetes",
+        "Go",
+        "AWS",
+        "Cloud",
+        "DevOps"
+      ],
+      "startDate": "2021",
+      "endDate": "2022",
+      "url": "https://github.com/zacheim/cloud-automation",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa"
+    },
+    {
+      "name": "Secure IoT Platform",
+      "description": "End-to-end IoT platform with military-grade encryption and real-time monitoring capabilities.",
+      "highlights": [
+        "Secured communication for 10,000+ devices",
+        "Implemented zero-trust architecture",
+        "Developed custom encryption protocol"
+      ],
+      "keywords": [
+        "C++",
+        "Python",
+        "MQTT",
+        "Blockchain",
+        "Security",
+        "IoT"
+      ],
+      "startDate": "2020",
+      "endDate": "2021",
+      "url": "https://github.com/zacheim/secure-iot",
+      "image": "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Professional"
+    },
+    {
+      "language": "French",
+      "fluency": "Conversational"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Quantum Computing",
+      "keywords": [
+        "Quantum Algorithms",
+        "Quantum Machine Learning"
+      ]
+    },
+    {
+      "name": "Blockchain Technology",
+      "keywords": [
+        "Smart Contracts",
+        "Decentralized Applications"
+      ]
+    },
+    {
+      "name": "Robotics",
+      "keywords": [
+        "Autonomous Systems",
+        "Human-Robot Interaction"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "Dr. Sarah Johnson",
+      "reference": "Zacariah is an exceptional technologist with a rare combination of deep technical expertise and strategic vision."
+    },
+    {
+      "name": "Michael Chen",
+      "reference": "Working with Zacariah transformed our approach to AI. His solutions are elegant, scalable, and forward-thinking."
+    }
+  ],
+  "meta": {
+    "version": "1.0.0",
+    "lastUpdated": "2023-10-15"
+  }
+}

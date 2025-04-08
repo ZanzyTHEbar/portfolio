@@ -1,8 +1,8 @@
 // Animation utility functions and constants
-import { TransitionConfig } from 'solid-transition-group'
+import type { TransitionProps } from 'solid-transition-group'
 
 // Fade transition
-export const fadeTransition: TransitionConfig = {
+export const fadeTransition: Partial<TransitionProps> = {
   enterActiveClass: 'transition-opacity duration-300 ease-in-out',
   enterClass: 'opacity-0',
   enterToClass: 'opacity-100',
@@ -12,7 +12,7 @@ export const fadeTransition: TransitionConfig = {
 }
 
 // Slide up transition
-export const slideUpTransition: TransitionConfig = {
+export const slideUpTransition: Partial<TransitionProps> = {
   enterActiveClass: 'transition-all duration-500 ease-out',
   enterClass: 'opacity-0 transform translate-y-8',
   enterToClass: 'opacity-100 transform translate-y-0',
@@ -22,7 +22,7 @@ export const slideUpTransition: TransitionConfig = {
 }
 
 // Scale transition
-export const scaleTransition: TransitionConfig = {
+export const scaleTransition: Partial<TransitionProps> = {
   enterActiveClass: 'transition-all duration-300 ease-out',
   enterClass: 'opacity-0 transform scale-95',
   enterToClass: 'opacity-100 transform scale-100',

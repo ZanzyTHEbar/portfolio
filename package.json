@@ -4,16 +4,17 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "analyze": "vite build --analyze",
+    "dev": "node scripts/cv-to-portfolio.js && vite dev",
+    "build": "node scripts/cv-to-portfolio.js && vite build",
+    "analyze": "node scripts/cv-to-portfolio.js && vite build --analyze",
     "start": "vite start",
     "serve": "vite preview",
     "setup": "pnpm install",
     "lint": "eslint --ext .js,.ts,.jsx,.tsx src",
     "format": "pnpm run lint --fix & pnpm prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "update-deps": "pnpm up -Li",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "update-cv": "node scripts/cv-to-portfolio.js"
   },
   "license": "MIT",
   "devDependencies": {
@@ -25,6 +26,7 @@
     "@typescript-eslint/parser": "^8.20.0",
     "autoprefixer": "^10.4.20",
     "babel-loader": "^9.2.1",
+    "dotenv": "^16.4.7",
     "eslint": "^9.18.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^10.0.1",

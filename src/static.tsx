@@ -1,4 +1,5 @@
-import { Brain, Globe, Lock, Code2, Terminal } from 'lucide-solid'
+// This file is auto-generated from CV data. Do not edit manually.
+import { Brain, Globe, Terminal, Code } from 'lucide-solid'
 import type { Experience, Project, Skill } from './types'
 
 export const Experiences: Experience[] = [
@@ -46,38 +47,49 @@ export const Projects: Project[] = [
         description:
             'Enterprise-scale analytics platform leveraging machine learning for real-time insights and predictive modeling.',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
-        tags: ['Python', 'TensorFlow', 'AWS', 'React'],
-        icon: <Brain class="h-6 w-6" />,
-        link: '#',
+        tags: ['Python', 'TensorFlow', 'AWS', 'React', 'AI', 'Machine Learning'],
+        // Using a function to create the JSX element to avoid TypeScript errors
+        get icon() {
+            return <Brain class="h-6 w-6" />
+        },
+        link: 'https://github.com/zacheim/ai-analytics',
     },
     {
         title: 'Cloud Infrastructure Automation',
         description:
             'Automated cloud infrastructure deployment system with self-healing capabilities and intelligent scaling.',
         image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa',
-        tags: ['Terraform', 'Kubernetes', 'Go', 'AWS'],
-        icon: <Globe class="h-6 w-6" />,
-        link: '#',
+        tags: ['Terraform', 'Kubernetes', 'Go', 'AWS', 'Cloud', 'DevOps'],
+        get icon() {
+            return <Globe class="h-6 w-6" />
+        },
+        link: 'https://github.com/zacheim/cloud-automation',
     },
     {
         title: 'Secure IoT Platform',
         description:
             'End-to-end IoT platform with military-grade encryption and real-time monitoring capabilities.',
         image: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a',
-        tags: ['C++', 'Python', 'MQTT', 'Blockchain'],
-        icon: <Lock class="h-6 w-6" />,
-        link: '#',
+        tags: ['C++', 'Python', 'MQTT', 'Blockchain', 'Security', 'IoT'],
+        get icon() {
+            return <Brain class="h-6 w-6" />
+        },
+        link: 'https://github.com/zacheim/secure-iot',
     },
 ]
 
 export const Skills: Skill[] = [
     {
-        icon: <Brain class="h-12 w-12 text-[#FFD700]" />,
+        get icon() {
+            return <Brain class="h-12 w-12 text-[#FFD700]" />
+        },
         title: 'AI & Machine Learning',
         skills: ['Deep Learning', 'NLP', 'Computer Vision', 'MLOps', 'TensorFlow'],
     },
     {
-        icon: <Terminal class="h-12 w-12 text-[#FFD700]" />,
+        get icon() {
+            return <Terminal class="h-12 w-12 text-[#FFD700]" />
+        },
         title: 'Cloud & DevOps',
         skills: [
             'AWS Architecture',
@@ -88,7 +100,9 @@ export const Skills: Skill[] = [
         ],
     },
     {
-        icon: <Code2 class="h-12 w-12 text-[#FFD700]" />,
+        get icon() {
+            return <Code class="h-12 w-12 text-[#FFD700]" />
+        },
         title: 'System Design',
         skills: [
             'Distributed Systems',

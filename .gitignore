@@ -1,2 +1,11 @@
 node_modules
 dist
+.cache
+.env
+.env.local
+.env.development.local
+.env.production.local
+
+# Cloudflare Workers
+.wrangler/
+.dev.vars
