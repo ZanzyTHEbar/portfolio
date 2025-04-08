@@ -1,0 +1,14 @@
+[build]
+command = "pnpm build"
+output_directory = "dist"
+base_directory = ""
+
+[build.environment]
+NODE_VERSION = "18"
+
+[site]
+bucket = "./dist"
+entry-point = "./"
+
+[functions]
+directory = "functions"

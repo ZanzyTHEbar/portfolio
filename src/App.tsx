@@ -1,5 +1,3 @@
-import { Code2, Brain, Terminal, ExternalLink, Lock, Globe } from 'lucide-solid'
-
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import Experience from '@components/Experience'

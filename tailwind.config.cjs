@@ -1,5 +1,3 @@
-import theme from './src/common/theme'
-
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 
@@ -94,31 +92,10 @@ module.exports = {
       borderColor: {
         'glass': 'rgba(255, 255, 255, 0.18)',
       },
-    },
-    //...theme,
+    }
   },
   plugins: [
-    require("daisyui"),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
-    require('@kobalte/tailwindcss')({ prefix: 'kb' }),
-
-  ],
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
-          primary: "#8B5CF6",
-          secondary: "#64748B",
-          accent: "#F472B6",
-          neutral: "#F3F4F6",
-          "base-100": "#FFFFFF",
-          info: "#38BDF8",
-          success: "#4ADE80",
-          warning: "#FBBF24",
-          error: "#F87171",
-        },
-      },
-    ],
-  },
+  ]
 } 
