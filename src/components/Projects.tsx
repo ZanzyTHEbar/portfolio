@@ -1,6 +1,7 @@
 import { Brain, Globe, Lock, ExternalLink } from 'lucide-solid'
 import { For } from 'solid-js'
 import { Projects } from '@src/static'
+import ResponsiveImage from './ResponsiveImage'
 
 /* Projects Section */
 const ProjectSection = () => {
@@ -15,12 +16,15 @@ const ProjectSection = () => {
                     {(project, projectIndex) => (
                         <div
                             data-index={projectIndex()}
-                            class="bg-gray-800 rounded-3xl overflow-hidden border border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group">
+                            style={{ 'animation-delay': `${projectIndex() * 150}ms` }}
+                            class="bg-gray-800 rounded-3xl overflow-hidden border border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group animate-slide-up opacity-0">
                             <div class="relative h-48 overflow-hidden">
-                                <img
+                                <ResponsiveImage
                                     src={project.image}
                                     alt={project.title}
-                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                                    class="transform group-hover:scale-110 transition-transform duration-300"
+                                    loading={projectIndex() < 2 ? 'eager' : 'lazy'}
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />
                                 <div class="absolute inset-0 bg-gray-900/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                     <a

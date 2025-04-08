@@ -150,7 +150,7 @@ const Contact = () => {
                     </h2>
                     <div class="w-20 h-1 bg-[#FFD700] mx-auto rounded-full" />
                 </div>
-                <div class="bg-gray-800 rounded-3xl shadow-xl p-8 md:p-12 border border-gray-700">
+                <div class="bg-gray-800 rounded-3xl shadow-xl p-8 md:p-12 border border-gray-700 animate-fade-in">
                     <div class="max-w-3xl mx-auto">
                         <Show when={formStatus() === 'loading'}>
                             <div class="mb-6 p-4 bg-blue-900/30 border border-blue-700 rounded-xl flex items-center gap-3 text-blue-400">
@@ -173,7 +173,7 @@ const Contact = () => {
                             </div>
                         </Show>
 
-                        <form class="space-y-6" onSubmit={handleSubmit}>
+                        <form class="space-y-6 animate-slide-up delay-200" onSubmit={handleSubmit}>
                             <FormField name="name" label="Name" formHandler={formHandler} />
                             <FormField
                                 name="email"
@@ -195,7 +195,7 @@ const Contact = () => {
                                 Send Message
                             </button>
                         </form>
-                        <div class="mt-12 flex justify-center space-x-6">
+                        <div class="mt-12 flex justify-center space-x-6 animate-fade-in delay-300">
                             <a href="#" class="text-gray-400 hover:text-[#FFD700]">
                                 <Github class="h-8 w-8" />
                             </a>

@@ -18,7 +18,8 @@ const Experience = () => {
                         {(experience, index) => (
                             <div
                                 data-index={index()}
-                                class="bg-gray-800 rounded-3xl p-8 border border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300">
+                                style={{ 'animation-delay': `${index() * 200}ms` }}
+                                class="bg-gray-800 rounded-3xl p-8 border border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300 animate-slide-up opacity-0">
                                 <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                                     <div>
                                         <div class="flex items-center gap-2">

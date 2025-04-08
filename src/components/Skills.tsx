@@ -14,10 +14,11 @@ const SkillSection = () => {
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <For each={Skills}>
-                        {(category) => (
+                        {(category, index) => (
                             <div
                                 data-key={category.title}
-                                class="bg-gray-900 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow border border-gray-700">
+                                style={{ 'animation-delay': `${index() * 200}ms` }}
+                                class="bg-gray-900 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow border border-gray-700 animate-scale-in opacity-0">
                                 <div class="flex flex-col items-center">
                                     {category.icon}
                                     <h3 class="text-2xl font-quicksand font-bold mt-4 mb-6 text-white">

@@ -14,13 +14,15 @@ const Hero = () => {
             }}>
             <div class="absolute inset-0 bg-gray-900/80" />
             <div class="relative text-center text-white z-10">
-                <h1 class="text-5xl md:text-7xl font-quicksand font-bold mb-4">Zacariah Heim</h1>
-                <p class="text-xl md:text-2xl font-nunito mb-8 text-gray-300">
+                <h1 class="text-5xl md:text-7xl font-quicksand font-bold mb-4 animate-fade-in">
+                    Zacariah Heim
+                </h1>
+                <p class="text-xl md:text-2xl font-nunito mb-8 text-gray-300 animate-slide-up delay-200">
                     Tech Innovator | AI Consultant | Systems Architect
                 </p>
                 <a
                     href="#contact"
-                    class="bg-[#FFD700] text-gray-900 px-8 py-3 rounded-full font-nunito hover:bg-[#FFC800] transition-colors">
+                    class="bg-[#FFD700] text-gray-900 px-8 py-3 rounded-full font-nunito hover:bg-[#FFC800] transition-colors animate-scale-in delay-400 inline-block">
                     Connect Now
                 </a>
             </div>
