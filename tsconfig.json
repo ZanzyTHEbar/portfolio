@@ -1,0 +1,43 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "jsxImportSource": "solid-js",
+        "types": ["vite/client"],
+        "allowJs": false,
+        "skipLibCheck": true,
+        "esModuleInterop": false,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "preserve",
+        "paths": {
+            "@interfaces/*": ["src/static/types/*"],
+            "@components/*": ["src/components/*"],
+            "@store/*": ["src/store/*"],
+            "@contexts/*": ["src/store/context/*"],
+            "@pages/*": ["src/pages/*"],
+            "@styles/*": ["src/styles/*"],
+            "@config/*": ["src/config/*"],
+            "@src/*": ["src/*"],
+            "@assets/*": ["src/assets/*"],
+            "@hooks/*": ["src/utils/hooks/*"],
+            "@static/*": ["src/static/*"],
+            "@routes/*": ["src/routes/*"],
+        }
+    },
+    "include": ["src", "**/*.ts", "**/*.tsx", "index.js", "tailwind.config.cjs", "postcss.config.cjs"],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ],
+    "exclude": ["node_modules"]
+}
