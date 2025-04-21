@@ -39,34 +39,34 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     target: 'esnext',
-    polyfillDynamicImport: false,
-    minify: 'terser',
-    cssCodeSplit: true,
-    reportCompressedSize: true,
-    rollupOptions: {
-      output: {
-        manualChunks: (id) => {
-          // Create separate chunks for large dependencies
-          if (id.includes('node_modules')) {
-            if (id.includes('solid-js')) {
-              return 'vendor-solid'
-            }
-            if (id.includes('lucide')) {
-              return 'vendor-icons'
-            }
-            if (id.includes('solid-form-handler') || id.includes('zod')) {
-              return 'vendor-form'
-            }
-            return 'vendor' // All other dependencies
-          }
-        },
-      },
-    },
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
+    //polyfillDynamicImport: false,
+    //minify: 'terser',
+    //cssCodeSplit: true,
+    //reportCompressedSize: true,
+    //rollupOptions: {
+    //  output: {
+    //    manualChunks: (id) => {
+    //      // Create separate chunks for large dependencies
+    //      if (id.includes('node_modules')) {
+    //        if (id.includes('solid-js')) {
+    //          return 'vendor-solid'
+    //        }
+    //        if (id.includes('lucide')) {
+    //          return 'vendor-icons'
+    //        }
+    //        if (id.includes('solid-form-handler') || id.includes('zod')) {
+    //          return 'vendor-form'
+    //        }
+    //        return 'vendor' // All other dependencies
+    //      }
+    //    },
+    //  },
+    //},
+    //terserOptions: {
+    //  compress: {
+    //    drop_console: true,
+    //    drop_debugger: true,
+    //  },
+    //},
   },
 }));

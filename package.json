@@ -4,17 +4,16 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/cv-to-portfolio.js && vite dev",
-    "build": "node scripts/cv-to-portfolio.js && vite build",
-    "analyze": "node scripts/cv-to-portfolio.js && vite build --analyze",
+    "dev": " vite dev",
+    "build": " vite build",
+    "analyze": " vite build --analyze",
     "start": "vite start",
     "serve": "vite preview",
     "setup": "pnpm install",
     "lint": "eslint --ext .js,.ts,.jsx,.tsx src",
     "format": "pnpm run lint --fix & pnpm prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "update-deps": "pnpm up -Li",
-    "typecheck": "tsc --noEmit",
-    "update-cv": "node scripts/cv-to-portfolio.js"
+    "typecheck": "tsc --noEmit"
   },
   "license": "MIT",
   "devDependencies": {

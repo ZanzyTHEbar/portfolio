@@ -2,13 +2,12 @@ import { ExternalLink } from 'lucide-solid'
 import { For, Show } from 'solid-js'
 import type { Project } from '@src/types'
 import ResponsiveImage from './ResponsiveImage'
-import DynamicIcon from './DynamicIcon'
 
 /* Projects Section */
 const ProjectSection = (props: { data?: Project[] }) => {
     // Use provided data or empty array as fallback
-    const projects = () => props.data || [];
-    
+    const projects = () => props.data || []
+
     return (
         <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto">
@@ -18,12 +17,14 @@ const ProjectSection = (props: { data?: Project[] }) => {
                     </h2>
                     <div class="w-20 h-1 bg-[#FFD700] mx-auto rounded-full" />
                 </div>
-                
-                <Show when={projects().length > 0} fallback={
-                    <div class="text-center text-gray-400 py-12">
-                        <p>Loading projects...</p>
-                    </div>
-                }>
+
+                <Show
+                    when={projects().length > 0}
+                    fallback={
+                        <div class="text-center text-gray-400 py-12">
+                            <p>Loading projects...</p>
+                        </div>
+                    }>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <For each={projects()}>
                             {(project, projectIndex) => (
@@ -49,15 +50,14 @@ const ProjectSection = (props: { data?: Project[] }) => {
                                     </div>
                                     <div class="p-6">
                                         <div class="flex items-center gap-2 mb-3">
-                                            <DynamicIcon 
-                                                name={project.iconName || project.icon as string} 
-                                                class="h-6 w-6" 
-                                            />
+                                            <div class="h-6 w-6">{project.icon}</div>
                                             <h3 class="text-xl font-quicksand font-bold text-white">
                                                 {project.title}
                                             </h3>
                                         </div>
-                                        <p class="text-gray-300 font-nunito mb-4">{project.description}</p>
+                                        <p class="text-gray-300 font-nunito mb-4">
+                                            {project.description}
+                                        </p>
                                         <div class="flex flex-wrap gap-2">
                                             <For each={project.tags}>
                                                 {(tag, tagIndex) => (

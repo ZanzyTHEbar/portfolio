@@ -1,6 +1,6 @@
 import { Suspense, createEffect, onMount } from 'solid-js'
 import { lazyLoad } from './utils/lazyLoad'
-import { usePortfolioData } from './utils/cvDataFetcher'
+import { Skills, Projects, Experiences } from './static'
 
 // Only import Header and Hero eagerly for fast initial load
 import Header from '@components/Header'
@@ -22,33 +22,20 @@ const LoadingFallback = () => (
 )
 
 const App = () => {
-    // Fetch portfolio data
-    const { data: portfolioData, loading, error, checkForUpdates } = usePortfolioData()
-
-    // Check for updates periodically
-    onMount(() => {
-        // Check for updates every 5 minutes
-        const updateInterval = setInterval(
-            () => {
-                checkForUpdates()
-            },
-            5 * 60 * 1000,
-        )
-
-        // Clean up interval on unmount
-        return () => clearInterval(updateInterval)
-    })
-
     // Create a context effect to log data loading
-    createEffect(() => {
-        if (loading()) {
-            console.log('Loading portfolio data...')
-        } else if (error()) {
-            console.error('Error loading portfolio data:', error())
-        } else if (portfolioData()) {
-            console.log('Portfolio data loaded, version:', portfolioData()?.meta.version)
-        }
-    })
+    //createEffect(() => {
+    //    if (loading()) {
+    //        console.log('Loading portfolio data...')
+    //    } else if (error()) {
+    //        console.error('Error loading portfolio data:', error())
+    //    } else if (portfolioData()) {
+    //        console.log('Portfolio data loaded, version:', portfolioData()?.meta.version)
+    //    }
+    //})
+
+    const skillsData = Skills
+    const projectsData = Projects
+    const experiencesData = Experiences
 
     return (
         <div class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
@@ -58,21 +45,25 @@ const App = () => {
                 <About />
             </Suspense>
             <Suspense fallback={<LoadingFallback />}>
-                <ProjectSection data={portfolioData()?.projects} />
+                <ProjectSection data={projectsData} />
             </Suspense>
             <Suspense fallback={<LoadingFallback />}>
-                <SkillSection data={portfolioData()?.skills} />
+                <SkillSection data={skillsData} />
             </Suspense>
             <Suspense fallback={<LoadingFallback />}>
-                <Experience data={portfolioData()?.experiences} />
+                <Experience data={experiencesData} />
             </Suspense>
             <Suspense fallback={<LoadingFallback />}>
                 <Contact />
             </Suspense>
             <Suspense fallback={<LoadingFallback />}>
                 <Footer
-                    version={portfolioData()?.meta.version}
-                    lastUpdated={portfolioData()?.meta.lastUpdated}
+                    version={'1.0.0'}
+                    lastUpdated={new Date().toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                    })}
                 />
             </Suspense>
         </div>

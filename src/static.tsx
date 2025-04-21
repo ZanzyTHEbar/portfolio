@@ -48,7 +48,6 @@ export const Projects: Project[] = [
             'Enterprise-scale analytics platform leveraging machine learning for real-time insights and predictive modeling.',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
         tags: ['Python', 'TensorFlow', 'AWS', 'React', 'AI', 'Machine Learning'],
-        // Using a function to create the JSX element to avoid TypeScript errors
         get icon() {
             return <Brain class="h-6 w-6" />
         },
