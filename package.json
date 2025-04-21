@@ -13,7 +13,8 @@
     "lint": "eslint --ext .js,.ts,.jsx,.tsx src",
     "format": "pnpm run lint --fix & pnpm prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "update-deps": "pnpm up -Li",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "pages:dev": "wrangler pages dev dist --functions ./functions"
   },
   "license": "MIT",
   "devDependencies": {
