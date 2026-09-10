@@ -225,7 +225,11 @@ export function AliveDiagram({ items, selected, onSelect }: AliveDiagramProps) {
           <p className="text-sm text-muted">No projects available.</p>
         )}
       </div>
-      <div className="mt-4 border-t border-border pt-3">
+      <div
+        role="group"
+        aria-label="All Tier S projects"
+        className="mt-4 border-t border-border pt-3"
+      >
         <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
           All Tier S projects
         </p>
