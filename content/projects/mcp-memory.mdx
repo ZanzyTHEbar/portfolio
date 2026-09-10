@@ -1,0 +1,64 @@
+---
+slug: mcp-memory
+title: MCP Memory
+tier: S
+status: active
+dates:
+  start: "2025"
+dimensions:
+  - build
+  - research
+thesis: Persistent agent memory in Go — 2× faster, 40% leaner, one binary.
+stack:
+  - Go
+  - libSQL
+  - Vector search
+  - MCP
+domains:
+  - software
+related:
+  - dragonscale
+  - aire
+  - virtual-vectorfs
+  - mealie-mcp
+featured: true
+priority: 4
+metrics:
+  - label: Speed vs TypeScript original
+    value: "2× (author-reported, unverified)"
+    verified: false
+  - label: Memory vs TypeScript original
+    value: "40% lower (author-reported, unverified)"
+    verified: false
+---
+
+## Strange Idea
+
+Can persistent semantic memory be useful without becoming its own infrastructure project?
+
+## Hypothesis
+
+If the memory server is a single Go binary on libSQL, then it beats the TS original on speed and footprint.
+
+## Constraints
+
+- memory footprint
+- zero runtime deps
+- multi-project isolation
+
+## System
+
+Agent memory usually grows into its own infrastructure project. The bet here is a single Go binary on libSQL — vector plus hybrid search, knowledge graphs, multi-project isolation, and metrics.
+
+## Reality
+
+Author-reported 2× performance and 40% lower memory versus the TypeScript original.
+
+## Open Questions
+
+- Benchmark methodology is unmeasured here; the 2×/40% figures await a reproducible harness.
+- Which workloads? Ingest vs recall vs hybrid?
+
+## Evidence
+
+- [ZanzyTHEbar/mcp-memory-libsql-go](https://github.com/ZanzyTHEbar/mcp-memory-libsql-go) — persistent MCP memory on libSQL.

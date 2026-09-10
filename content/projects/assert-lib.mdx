@@ -1,0 +1,56 @@
+---
+slug: assert-lib
+title: assert-lib
+tier: S
+status: maintained
+dimensions:
+  - build
+thesis: Assertions should be safe by default and loud only when asked.
+stack:
+  - Go
+domains:
+  - software
+related:
+  - faults-go
+  - errbuilder-go
+featured: false
+priority: 12
+metrics: []
+---
+
+## Strange Idea
+
+What if an assertion library refused to crash your program unless you explicitly opted in?
+
+## Hypothesis
+
+If assertions are safe by default — log and continue — with crash, silent, debug, and verbose modes behind explicit options, then systems and real-time code can assert freely in paths where a panic would be worse than the bug.
+
+## Constraints
+
+- no crashing in production paths unless opted in
+- structured logging with flush controls
+- performance-critical sections need silent checks
+
+## System
+
+Assertion libraries usually pick one posture: crash or print. assert-lib is a lightweight Go assertion library that is safe by default — no instance required — with behavior composed through the Function Options pattern: JSON or text formatters, crash-on-failure opt-in, silent mode, debug and verbose stack-trace modes, and testing/production presets.
+
+## Reality
+
+Open-source Go module with Go Reference docs and examples, authored for systems and real-time use.
+
+## Decisions
+
+- Safe-by-default with opt-in crashing, instead of crash-first with opt-out.
+- Function Options pattern for behavior composition over instance configuration.
+
+## Open Questions
+
+- Do deferred/batched assertions hold up in real-time paths, or does per-assertion checking win where latency matters?
+- README lists Text, JSON, and YAML formatters — does YAML earn its keep, or does the surface shrink to JSON + text?
+- Package-level functions vs. instance handlers: does one usage win, or do both stay?
+
+## Evidence
+
+- [ZanzyTHEbar/assert-lib](https://github.com/ZanzyTHEbar/assert-lib) — lightweight assertion library for Go.

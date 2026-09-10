@@ -1,0 +1,29 @@
+---
+slug: virtual-vectorfs
+title: virtual-vectorfs
+tier: A
+status: experimental
+dimensions:
+  - build
+  - research
+thesis: File organization should be queryable by meaning and place, not just by path.
+stack:
+  - Go
+  - libSQL
+  - Vector search
+domains:
+  - software
+related:
+  - mcp-memory
+featured: false
+priority: 21
+metrics: []
+---
+
+## System
+
+Hierarchical paths answer one question — where — while agents need what, what-like, and what-nearby. virtual-vectorfs is a virtual filesystem in Go on embedded libSQL: concurrent operations over hierarchical organization, with vector search for semantic similarity, full-text search, spatial indexing, and git integration. Pre-alpha and moving fast; the bet is that storage, search, and meaning belong in one binary.
+
+## Evidence
+
+- [ZanzyTHEbar/virtual-vectorfs](https://github.com/ZanzyTHEbar/virtual-vectorfs) — virtual filesystem with spatial indexing.

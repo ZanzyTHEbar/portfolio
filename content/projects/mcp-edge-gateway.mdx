@@ -1,0 +1,33 @@
+---
+slug: mcp-edge-gateway
+title: MCP Edge Gateway
+tier: A
+status: active
+dimensions:
+  - build
+thesis: Shared MCP infrastructure needs authenticated multi-tenant edges, not exposed dev servers.
+stack:
+  - Go
+  - MCP
+  - SQLite
+  - libSQL
+  - OAuth
+  - Docker
+  - Coolify
+domains:
+  - software
+related:
+  - mealie-mcp
+  - coder-opencode-sandbox
+featured: true
+priority: 16
+metrics: []
+---
+
+## System
+
+Exposing one MCP server is a demo; operating many for many tenants is infrastructure. MCP Edge Gateway is a Go runtime for a shared MCP edge and control plane — authenticated public HTTP entrypoints, subject-aware tenant routing, SQLite/libSQL persistence with migrations, full OAuth surfaces, and a control plane that reconciles tenant services, shipping with Docker Compose and Coolify deployment templates.
+
+## Evidence
+
+- [ZanzyTHEbar/mcp-edge-gateway](https://github.com/ZanzyTHEbar/mcp-edge-gateway) — Go runtime for the MCP edge and control plane.

@@ -1,0 +1,30 @@
+---
+slug: thothnetwork
+title: ThothNetwork
+tier: A
+status: experimental
+dimensions:
+  - build
+  - experiment
+thesis: Millions of IoT devices need a backend designed for concurrency first, not retrofitted to it.
+stack:
+  - Go
+  - NATS
+  - libp2p
+domains:
+  - software
+related:
+  - easynetworkmanager
+  - dragonscale
+featured: false
+priority: 24
+metrics: []
+---
+
+## System
+
+IoT backends usually start as a broker and accrete everything else until they fall over. ThothNetwork is a real-time IoT backend in Go built for scale from the start — hexagonal architecture, NATS and libp2p networking, device management with digital twins, sub-second streaming, and X.509/JWT security — begun as a decentralized battery-management backbone and grown into a general-purpose system with multi-agent-task potential.
+
+## Evidence
+
+- [ZanzyTHEbar/thothnetwork](https://github.com/ZanzyTHEbar/thothnetwork) — scalable distributed IoT backend.

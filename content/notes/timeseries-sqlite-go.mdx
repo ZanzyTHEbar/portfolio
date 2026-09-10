@@ -1,0 +1,15 @@
+---
+slug: timeseries-sqlite-go
+title: "Building High-Performance Time Series on SQLite with Go"
+date: "2025-01-01"
+summary: "SQLite as a time-series engine in Go."
+projectSlugs:
+  - mcp-memory
+thesis: "SQLite as a high-performance time-series engine in Go."
+---
+
+Memory servers and metrics endpoints both drown in timestamped data, and reaching for a dedicated time-series cluster contradicts the single-binary thesis behind MCP Memory. The problem is operational weight, not raw throughput.
+
+Working-note speculation: SQLite in Go, shaped into a time-series engine, keeps the footprint at one file and one binary — the same instinct as a libSQL-backed memory server. Boring storage, carefully indexed, carrying workloads it was never marketed for.
+
+Unverified and open: which ingest-versus-recall shapes this actually holds up on. The note stays speculation until benchmarks say otherwise, and the date and URL are verified.

@@ -1,0 +1,57 @@
+---
+slug: faults-go
+title: faults-go
+tier: S
+status: maintained
+dimensions:
+  - build
+thesis: Application faults should carry stable codes across process boundaries, not ad-hoc strings.
+stack:
+  - Go
+domains:
+  - software
+related:
+  - assert-lib
+  - errbuilder-go
+  - dragonscale
+featured: false
+priority: 11
+metrics: []
+---
+
+## Strange Idea
+
+What if every error an application raised already knew its stable fault code and its transport code?
+
+## Hypothesis
+
+If application faults carry durable codes like `validation.failed` while process boundaries still speak transport codes like `InvalidArgument`, then error handling stays structured end to end without translation layers in every service.
+
+## Constraints
+
+- stdlib compatibility (`errors.Is` / `errors.As` must keep working)
+- context cancellation and deadline semantics
+- process-wide code mappings without global-state surprises
+
+## System
+
+Error strings rot: unmatchable, untranslatable, unmappable at boundaries. faults-go is a small Go library for stable, structured application faults — `New` and `Wrap` for creating and wrapping with normalized key/value details, `CodeOf` / `IsCode` inspection, process-wide code-to-transport registration — built on errbuilder-go for transport-aware error values with assert-lib reporting integration.
+
+## Reality
+
+Open-source Go module with CI, Go Reference docs, and MIT license, under active authorship alongside its two sibling libraries.
+
+## Decisions
+
+- Separate the durable application code from the transport code instead of overloading one string.
+- Build on errbuilder-go and assert-lib rather than standing alone.
+
+## Open Questions
+
+- Process-wide code-to-transport registration is global state by design — where does it surprise multi-package callers?
+- faults-go wraps errbuilder-go and reports via assert-lib — does the trio stay three modules or collapse into one?
+- Beyond validation/database examples, which fault codes actually get reused across projects?
+
+## Evidence
+
+- [ZanzyTHEbar/faults-go](https://github.com/ZanzyTHEbar/faults-go) — structured application faults for Go.

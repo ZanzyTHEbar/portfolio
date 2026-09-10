@@ -1,0 +1,51 @@
+---
+slug: errbuilder-go
+title: errbuilder-go
+tier: S
+status: maintained
+dimensions:
+  - build
+thesis: Project errors need one standard shape with meaningful codes, not bespoke wrapping everywhere.
+stack:
+  - Go
+domains:
+  - software
+related:
+  - faults-go
+  - assert-lib
+featured: false
+priority: 13
+metrics: []
+---
+
+## Strange Idea
+
+What if every project error came from one builder with codes that actually mean something?
+
+## Hypothesis
+
+If errors are built through a single Builder with a gRPC-inspired code set, an error map for complex flows, and structured details, then error handling stays uniform across projects instead of drifting per package.
+
+## Constraints
+
+- general-purpose: usable in any Go project
+- codes need standardized meaning, not per-call-site invention
+- deferred and multi-error flows must fit the same shape
+
+## System
+
+Inconsistent error handling is a tax on every reader: new shapes per package, codes invented at the call site. errbuilder-go is a lightweight custom error-builder library for Go — Builder-pattern construction with message, code, and details, an `ErrMap` for collecting errors across complex or deferred flows, and builtin wrappers demonstrating common usage.
+
+## Reality
+
+Open-source Go module, originally built for the author's own projects and generalized; pairs with assert-lib.
+
+## Open Questions
+
+- README install/usage snippets use `errorbuilder` and `errsx` import paths that don't match the module name — which path is canonical?
+- Are the 5 builtin wrappers in `errors.go` enough, or does every new project grow its own set anyway?
+- Does `ErrMap` actually cover deferred/multi-error flows in practice, or do callers bypass it?
+
+## Evidence
+
+- [ZanzyTHEbar/errbuilder-go](https://github.com/ZanzyTHEbar/errbuilder-go) — error builder for Go with gRPC-inspired codes.

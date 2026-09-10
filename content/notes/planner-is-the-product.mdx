@@ -1,0 +1,29 @@
+---
+slug: planner-is-the-product
+title: "The Planner Is the Product"
+date: "2026-04-29"
+summary: "BRHP: planning as durable, inspectable state for long-running coding agents."
+projectSlugs:
+  - brhp
+thesis: "Planning is the product: durable, inspectable planning state for coding agents."
+dimensions:
+  - build
+  - research
+---
+
+Long-running coding agents do not fail for lack of code generation; they fail because planning evaporates between turns. BRHP treats that planning as the actual product: a planning-harness kernel that keeps an explicit, persistent session instead of disposable chat residue.
+
+BRHP stands for Boltzmann Recursive Hierarchical Planning. It models a plan as a graph of scopes, nodes, and edges, each carrying utility, confidence, and entropy scores — so the system always knows what is unresolved and whether the plan is converging.
+
+Selection over that graph is temperature-controlled: the frontier of open work is sampled, not just listed, and entropy-drift signals say whether the plan is settling or thrashing. Validation is deterministic — snapshots record verdicts that can be inspected later rather than trusted on vibe.
+
+It ships as an OpenCode plugin: a `/brhp` command family (`status`, `plan`, `resume`, `history`, `inspect`), a TUI sidebar showing live planning state, and sessions persisted locally in `.opencode/brhp/brhp.db`. Project instructions stay in the loop from user- and project-level directories.
+
+The lineage is deliberate: ReAct's interleaved reasoning, Tree- and Graph-of-Thought search, LLM+P's classical-planning grounding, and the multi-agent scaffolding of MetaGPT and SWE-agent — synthesized one level up into a meta-harness.
+
+The NON-claims are explicit and load-bearing: no formal verification, no optimality guarantees, not benchmark-proven — and policy provenance plus authoritative completion are deferred to later versions. BRHP promises inspectable planning state, nothing grander, which is exactly why it is believable.
+
+## Evidence
+
+- [The Planner Is the Product (X)](https://x.com/ZacariahHeim/status/2049451509549518900) — the author's article this note condenses.
+- [ZanzyTHEbar/brhp](https://github.com/ZanzyTHEbar/brhp) — the planning-harness kernel.

@@ -1,0 +1,30 @@
+---
+slug: mealie-mcp
+title: mealie-mcp
+tier: A
+status: active
+dimensions:
+  - build
+thesis: Self-hosted recipe infrastructure should be drivable by agents, not just browsers.
+stack:
+  - TypeScript
+  - MCP
+  - StreamableHTTP
+  - Docker
+domains:
+  - software
+related:
+  - mcp-edge-gateway
+  - mcp-memory
+featured: false
+priority: 15
+metrics: []
+---
+
+## System
+
+A Mealie instance holds recipes, shopping lists, and meal plans behind a REST API built for clicks. mealie-mcp exposes that whole API surface as MCP tools over StreamableHTTP — generated from the Mealie OpenAPI spec, with token auth, configurable base URL, and extras like TDEE-based nutrition planning — so cooking infrastructure becomes callable from Claude, Cursor, and other MCP clients.
+
+## Evidence
+
+- [ZanzyTHEbar/mealie-mcp](https://github.com/ZanzyTHEbar/mealie-mcp) — MCP server for the Mealie API.

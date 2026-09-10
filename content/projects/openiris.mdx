@@ -1,0 +1,54 @@
+---
+slug: openiris
+title: OpenIris / EyeTrackVR
+tier: S
+status: maintained
+dates:
+  start: "2022"
+dimensions:
+  - build
+thesis: VR eye-tracking firmware that shipped in a real open-source hardware ecosystem.
+stack:
+  - ESP32
+  - C/C++
+  - ESP-IDF
+  - Python
+  - OTA
+domains:
+  - hardware
+  - software
+related:
+  - easynetworkmanager
+  - esp32-greenhouse
+featured: true
+priority: 3
+metrics: []
+---
+
+## Strange Idea
+
+What if VR eye tracking ran on commodity ESP32 boards?
+
+## Hypothesis
+
+If firmware handles camera streaming, networking, and OTA robustly, then hobbyist boards can carry real eye-tracking workloads.
+
+## Constraints
+
+- embedded RAM
+- Wi-Fi bandwidth
+- multi-board variants
+- power
+
+## System
+
+Real eye-tracking workloads should not need exotic hardware. This work is firmware plus Python tooling for commodity ESP32 boards — camera streaming, Wi-Fi, USB (UVC/CDC), health checks, board configs — with automated multi-board releases via CI.
+
+## Reality
+
+Shipped inside the EyeTrackVR ecosystem with releases and OTA.
+
+## Open Questions
+
+- Public evidence lives in the EyeTrackVR org; no author-owned repo to link.
+- Latency/throughput figures?

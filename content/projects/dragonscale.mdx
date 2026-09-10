@@ -1,0 +1,63 @@
+---
+slug: dragonscale
+title: DragonScale
+tier: S
+status: active
+dates:
+  start: "2025"
+dimensions:
+  - build
+  - research
+thesis: An AI agent runtime small and safe enough to actually deploy.
+stack:
+  - Go
+  - libSQL
+  - MCP
+  - DAG execution
+domains:
+  - software
+  - research
+related:
+  - mcp-memory
+  - aire
+  - agent-tooling
+  - brhp
+  - poml-go
+featured: true
+priority: 2
+metrics: []
+---
+
+## Strange Idea
+
+Can an AI agent runtime be small enough to actually deploy?
+
+## Hypothesis
+
+If capabilities are minimized and the trust boundary is explicit, then agents can run on constrained infrastructure.
+
+## Constraints
+
+- memory
+- security
+- latency
+- tool isolation
+- local deployment
+
+## System
+
+Agents stay undelivered while runtimes are heavy and trust boundaries are vague. DragonScale answers with a compact Go single binary: a capability bus (SecureBus), persistent memory, DAG execution, and MCP tool isolation.
+
+## Reality
+
+Open-source runtime under active development.
+
+## Open Questions
+
+- Benchmarks and evaluations are unmeasured on this page; performance claims await a reproducible harness.
+- How does SecureBus compare to MCP-native isolation?
+- Where the outbox table lives when the runtime itself is backed by libSQL.
+
+## Evidence
+
+- [ZanzyTHEbar/dragonscale](https://github.com/ZanzyTHEbar/dragonscale) — scalable AI agent personal assistant runtime.

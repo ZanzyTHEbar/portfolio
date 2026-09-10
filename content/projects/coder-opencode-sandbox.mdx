@@ -1,0 +1,33 @@
+---
+slug: coder-opencode-sandbox
+title: coder-opencode-sandbox
+tier: A
+status: active
+dimensions:
+  - build
+thesis: Every developer deserves a disposable cloud workspace with their agent setup intact.
+stack:
+  - Coder
+  - Terraform
+  - OpenCode
+  - OIDC
+  - Authentik
+  - Docker
+domains:
+  - software
+related:
+  - brhp
+  - agent-tooling
+  - dragonarchy
+featured: true
+priority: 25
+metrics: []
+---
+
+## System
+
+Cloud dev environments usually mean shared boxes, password auth, and state that vanishes on stop. This provisions per-user OpenCode sandboxes on Coder behind Authentik OIDC — one workspace per user with the OpenCode web UI, terminal access, and a persistent volume carrying config, database, and shell history — with a Terraform template, GHCR-built sandbox image, and Coolify post-deploy registration.
+
+## Evidence
+
+- [ZanzyTHEbar/coder-opencode-sandbox](https://github.com/ZanzyTHEbar/coder-opencode-sandbox) — per-user OpenCode sandboxes on Coder.

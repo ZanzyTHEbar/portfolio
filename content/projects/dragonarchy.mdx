@@ -1,0 +1,30 @@
+---
+slug: dragonarchy
+title: Dragonarchy
+tier: workshop
+status: maintained
+dimensions:
+  - build
+  - experiment
+thesis: A workstation should be reproducible from declarations, not from memory and shell history.
+stack:
+  - Ansible
+  - Chezmoi
+  - Hyprland
+  - Linux
+domains:
+  - software
+related:
+  - coder-opencode-sandbox
+featured: false
+priority: 26
+metrics: []
+---
+
+## System
+
+Workstations drift: packages, dotfiles, and secrets diverge until reinstalls become archaeology. Dragonarchy is an opinionated Arch/Hyprland setup run as a declarative control plane — Ansible for system state, chezmoi for user dotfiles, manifests for ownership, age/sops for secrets — with the legacy stow-and-scripts flow deprecated behind a guard. Personal-host scoped by its own admission; a reference, not a distro.
+
+## Evidence
+
+- [ZanzyTHEbar/dragonarchy](https://github.com/ZanzyTHEbar/dragonarchy) — opinionated Arch/Hyprland setup.
