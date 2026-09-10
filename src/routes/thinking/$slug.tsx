@@ -49,10 +49,7 @@ function EssayPage() {
   const { slug } = Route.useParams();
   const essay = notes.find((n) => n.slug === slug);
   const body = essay?.body ?? "";
-  const MdxContent = useMemo(
-    () => (essay ? compileMdx(body) : null),
-    [essay, body],
-  );
+  const MdxContent = useMemo(() => (essay ? compileMdx(body) : null), [essay, body]);
   if (!essay) throw notFound();
 
   // Dangling projectSlugs resolve to nothing and render nothing.
@@ -63,12 +60,8 @@ function EssayPage() {
   return (
     <article className="page-wrap flex max-w-3xl flex-col gap-6 py-12">
       <header className="reveal flex flex-col gap-3">
-        <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-          {essay.date}
-        </p>
-        <h1 className="font-sans text-3xl font-medium tracking-tight">
-          {essay.title}
-        </h1>
+        <p className="font-mono text-xs uppercase tracking-kicker text-subtle">{essay.date}</p>
+        <h1 className="font-sans text-3xl font-medium tracking-tight">{essay.title}</h1>
         <p className="text-base text-muted">{essay.summary}</p>
       </header>
 

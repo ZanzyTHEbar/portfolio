@@ -16,9 +16,7 @@ function ThinkingPage() {
         <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
           Thinking // Notes and essays
         </p>
-        <h1 className="font-sans text-3xl font-medium tracking-tight">
-          Written thinking
-        </h1>
+        <h1 className="font-sans text-3xl font-medium tracking-tight">Written thinking</h1>
       </header>
       <ul className="reveal reveal-2 flex flex-col gap-4">
         {essays.map((e) => {
@@ -28,9 +26,7 @@ function ThinkingPage() {
             .filter((p) => p !== undefined);
           return (
             <li key={e.slug} className="hairline bg-elevated p-5">
-              <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-                {e.date}
-              </p>
+              <p className="font-mono text-xs uppercase tracking-kicker text-subtle">{e.date}</p>
               <h2 className="mt-2 font-sans text-xl font-medium tracking-tight">
                 <Link
                   to="/thinking/$slug"

@@ -77,15 +77,10 @@ function BuildPage() {
   const { slug } = Route.useParams();
   const project = projects.find((p) => p.slug === slug);
   const body = project?.body ?? "";
-  const MdxContent = useMemo(
-    () => (project ? compileMdx(body) : null),
-    [project, body],
-  );
+  const MdxContent = useMemo(() => (project ? compileMdx(body) : null), [project, body]);
   if (!project) throw notFound();
 
-  const dates = [project.dates?.start, project.dates?.end]
-    .filter(Boolean)
-    .join(" — ");
+  const dates = [project.dates?.start, project.dates?.end].filter(Boolean).join(" — ");
   // Only verified metrics ever render; unverified numbers stay out.
   const verifiedMetrics = project.metrics.filter((m) => m.verified);
   // Dangling related[] slugs resolve to nothing and render nothing.
@@ -98,8 +93,7 @@ function BuildPage() {
   const at = tierGroup.findIndex((p) => p.slug === project.slug);
   const prev = at > 0 ? tierGroup[at - 1] : undefined;
   const next = at >= 0 && at < tierGroup.length - 1 ? tierGroup[at + 1] : undefined;
-  const howIThink =
-    lab.howIThink[project.priority % lab.howIThink.length] ?? lab.howIThink[0];
+  const howIThink = lab.howIThink[project.priority % lab.howIThink.length] ?? lab.howIThink[0];
 
   return (
     <article className="page-wrap flex max-w-3xl flex-col gap-8 py-12">
@@ -107,13 +101,9 @@ function BuildPage() {
         <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
           Tier {project.tier} // Status {project.status}
         </p>
-        <h1 className="font-sans text-3xl font-medium tracking-tight">
-          {project.title}
-        </h1>
+        <h1 className="font-sans text-3xl font-medium tracking-tight">{project.title}</h1>
         {dates && (
-          <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-            {dates}
-          </p>
+          <p className="font-mono text-xs uppercase tracking-kicker text-subtle">{dates}</p>
         )}
         {project.domains.length > 0 && (
           <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
@@ -137,16 +127,12 @@ function BuildPage() {
 
       {verifiedMetrics.length > 0 && (
         <section aria-label="Verified metrics" className="flex flex-col gap-2">
-          <h2 className="font-mono text-xs uppercase tracking-kicker text-subtle">
-            Results
-          </h2>
+          <h2 className="font-mono text-xs uppercase tracking-kicker text-subtle">Results</h2>
           <ul className="flex flex-col gap-1.5">
             {verifiedMetrics.map((m) => (
               <li key={m.label} className="font-mono text-sm text-muted">
                 {m.label}: <span className="text-fg">{m.value}</span>{" "}
-                <span className="text-xs uppercase tracking-kicker text-ok">
-                  verified
-                </span>
+                <span className="text-xs uppercase tracking-kicker text-ok">verified</span>
               </li>
             ))}
           </ul>

@@ -15,9 +15,7 @@ function TrajectoryPage() {
         <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
           Trajectory // Technical evolution
         </p>
-        <h1 className="font-sans text-3xl font-medium tracking-tight">
-          How the lab got here
-        </h1>
+        <h1 className="font-sans text-3xl font-medium tracking-tight">How the lab got here</h1>
       </header>
       {lanes.map((kind, lane) => {
         const entries = trajectory.filter((e) => e.kind === kind);
@@ -28,9 +26,7 @@ function TrajectoryPage() {
             aria-label={kind}
             className={`reveal ${lane === 0 ? "reveal-2" : "reveal-3"} flex flex-col gap-4`}
           >
-            <h2 className="font-mono text-xs uppercase tracking-kicker text-subtle">
-              {kind}
-            </h2>
+            <h2 className="font-mono text-xs uppercase tracking-kicker text-subtle">{kind}</h2>
             <ol className="flex flex-col gap-4">
               {entries.map((entry) => {
                 // Dangling projectSlugs resolve to nothing and render nothing.
@@ -38,10 +34,7 @@ function TrajectoryPage() {
                   .map((s) => projects.find((p) => p.slug === s))
                   .filter((p) => p !== undefined);
                 return (
-                  <li
-                    key={`${entry.period}-${entry.title}`}
-                    className="hairline bg-elevated p-5"
-                  >
+                  <li key={`${entry.period}-${entry.title}`} className="hairline bg-elevated p-5">
                     <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
                       {entry.period}
                     </p>

@@ -6,11 +6,7 @@ import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 
-export const COLLECTIONS = [
-  "evidence",
-  "activity",
-  "github_snapshots",
-] as const;
+export const COLLECTIONS = ["evidence", "activity", "github_snapshots"] as const;
 export type CollectionName = (typeof COLLECTIONS)[number];
 export type Snapshot = Record<CollectionName, unknown[]>;
 
@@ -44,9 +40,7 @@ export async function sync(
   ),
 ): Promise<Snapshot> {
   const snapshot = Object.fromEntries(
-    await Promise.all(
-      COLLECTIONS.map(async (c) => [c, await transport.list(c)] as const),
-    ),
+    await Promise.all(COLLECTIONS.map(async (c) => [c, await transport.list(c)] as const)),
   ) as Snapshot;
   await store.write(snapshot);
   return snapshot;
@@ -58,10 +52,7 @@ const counts = (s: Snapshot) =>
     .join(" ");
 
 // ponytail: entrypoint-only side effect; importing this module stays pure.
-if (
-  process.argv[1] &&
-  import.meta.url === pathToFileURL(process.argv[1]).href
-) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   sync().then(
     (s) => console.log(`pocketbase-sync: ok (${counts(s)})`),
     (err) => {

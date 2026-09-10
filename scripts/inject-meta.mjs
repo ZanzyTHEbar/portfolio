@@ -7,12 +7,7 @@
 // JSON-LD below, built from the real builds + thinking slugs parsed out of
 // content/** frontmatter (`slug:`, `title:`, `thesis:`/`summary:` lines).
 // Idempotent; exits non-zero when dist/ is missing so failures are loud.
-import {
-  existsSync,
-  readdirSync,
-  readFileSync,
-  writeFileSync,
-} from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -87,14 +82,8 @@ const itemListJson = JSON.stringify({
 
 const REQUIRED = [
   ["<title>The Zacariah Heim Lab</title>", /<title>[^<]*<\/title>/],
-  [
-    `<meta name="description" content="${THESIS}" />`,
-    /<meta\s+name="description"[^>]*>/,
-  ],
-  [
-    `<link rel="canonical" href="${SITE}/" />`,
-    /<link\s+rel="canonical"[^>]*>/,
-  ],
+  [`<meta name="description" content="${THESIS}" />`, /<meta\s+name="description"[^>]*>/],
+  [`<link rel="canonical" href="${SITE}/" />`, /<link\s+rel="canonical"[^>]*>/],
   [
     `<meta property="og:title" content="The Zacariah Heim Lab" />`,
     /<meta\s+property="og:title"[^>]*>/,
@@ -103,14 +92,8 @@ const REQUIRED = [
     `<meta property="og:description" content="${THESIS}" />`,
     /<meta\s+property="og:description"[^>]*>/,
   ],
-  [
-    `<meta property="og:url" content="${SITE}/" />`,
-    /<meta\s+property="og:url"[^>]*>/,
-  ],
-  [
-    `<meta property="og:image" content="${SITE}/og.svg" />`,
-    /<meta\s+property="og:image"[^>]*>/,
-  ],
+  [`<meta property="og:url" content="${SITE}/" />`, /<meta\s+property="og:url"[^>]*>/],
+  [`<meta property="og:image" content="${SITE}/og.svg" />`, /<meta\s+property="og:image"[^>]*>/],
   [
     `<meta name="twitter:card" content="summary_large_image" />`,
     /<meta\s+name="twitter:card"[^>]*>/,

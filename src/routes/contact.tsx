@@ -18,9 +18,7 @@ function ContactPage() {
         <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
           Contact // Open channel
         </p>
-        <h1 className="font-sans text-3xl font-medium tracking-tight">
-          Say hello
-        </h1>
+        <h1 className="font-sans text-3xl font-medium tracking-tight">Say hello</h1>
       </header>
       {/* lab.contact.email is empty: render nothing, never guess an address. */}
       {contact.email && (
