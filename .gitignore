@@ -8,4 +8,5 @@ pocketbase/snapshot.json
 .unlazy/
 .opencode/
 .tanstack/
+.playwright-mcp/
 docs/

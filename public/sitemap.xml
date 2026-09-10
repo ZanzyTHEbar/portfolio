@@ -2,39 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://zacariahheim.com/</loc></url>
   <url><loc>https://zacariahheim.com/builds</loc></url>
-  <url><loc>https://zacariahheim.com/builds/prometheon</loc></url>
-  <url><loc>https://zacariahheim.com/builds/dragonscale</loc></url>
-  <url><loc>https://zacariahheim.com/builds/openiris</loc></url>
-  <url><loc>https://zacariahheim.com/builds/mcp-memory</loc></url>
-  <url><loc>https://zacariahheim.com/builds/easynetworkmanager</loc></url>
-  <url><loc>https://zacariahheim.com/builds/esp32-greenhouse</loc></url>
-  <url><loc>https://zacariahheim.com/builds/wyrmlock</loc></url>
-  <url><loc>https://zacariahheim.com/builds/aire</loc></url>
-  <url><loc>https://zacariahheim.com/builds/agent-tooling</loc></url>
-  <url><loc>https://zacariahheim.com/builds/solidjs-charts</loc></url>
-  <url><loc>https://zacariahheim.com/builds/faults-go</loc></url>
-  <url><loc>https://zacariahheim.com/builds/assert-lib</loc></url>
-  <url><loc>https://zacariahheim.com/builds/errbuilder-go</loc></url>
-  <url><loc>https://zacariahheim.com/builds/brhp</loc></url>
-  <url><loc>https://zacariahheim.com/builds/mealie-mcp</loc></url>
-  <url><loc>https://zacariahheim.com/builds/mcp-edge-gateway</loc></url>
-  <url><loc>https://zacariahheim.com/builds/fireflyiii-client-go</loc></url>
-  <url><loc>https://zacariahheim.com/builds/firedragon-go</loc></url>
-  <url><loc>https://zacariahheim.com/builds/poml-go</loc></url>
-  <url><loc>https://zacariahheim.com/builds/latex2go</loc></url>
-  <url><loc>https://zacariahheim.com/builds/virtual-vectorfs</loc></url>
-  <url><loc>https://zacariahheim.com/builds/torodial-attention</loc></url>
-  <url><loc>https://zacariahheim.com/builds/mzi</loc></url>
-  <url><loc>https://zacariahheim.com/builds/thothnetwork</loc></url>
-  <url><loc>https://zacariahheim.com/builds/coder-opencode-sandbox</loc></url>
-  <url><loc>https://zacariahheim.com/builds/dragonarchy</loc></url>
   <url><loc>https://zacariahheim.com/thinking</loc></url>
-  <url><loc>https://zacariahheim.com/thinking/outbox-done-right</loc></url>
-  <url><loc>https://zacariahheim.com/thinking/topology-of-cognition</loc></url>
-  <url><loc>https://zacariahheim.com/thinking/timeseries-sqlite-go</loc></url>
-  <url><loc>https://zacariahheim.com/thinking/geometry-of-meaning</loc></url>
-  <url><loc>https://zacariahheim.com/thinking/planner-is-the-product</loc></url>
-  <url><loc>https://zacariahheim.com/thinking/universal-high-income</loc></url>
   <url><loc>https://zacariahheim.com/trajectory</loc></url>
   <url><loc>https://zacariahheim.com/contact</loc></url>
+  <url><loc>https://zacariahheim.com/builds/agent-tooling</loc></url>
+  <url><loc>https://zacariahheim.com/builds/aire</loc></url>
+  <url><loc>https://zacariahheim.com/builds/assert-lib</loc></url>
+  <url><loc>https://zacariahheim.com/builds/brhp</loc></url>
+  <url><loc>https://zacariahheim.com/builds/coder-opencode-sandbox</loc></url>
+  <url><loc>https://zacariahheim.com/builds/dragonarchy</loc></url>
+  <url><loc>https://zacariahheim.com/builds/dragonscale</loc></url>
+  <url><loc>https://zacariahheim.com/builds/easynetworkmanager</loc></url>
+  <url><loc>https://zacariahheim.com/builds/errbuilder-go</loc></url>
+  <url><loc>https://zacariahheim.com/builds/esp32-greenhouse</loc></url>
+  <url><loc>https://zacariahheim.com/builds/faults-go</loc></url>
+  <url><loc>https://zacariahheim.com/builds/firedragon-go</loc></url>
+  <url><loc>https://zacariahheim.com/builds/fireflyiii-client-go</loc></url>
+  <url><loc>https://zacariahheim.com/thinking/geometry-of-meaning</loc></url>
+  <url><loc>https://zacariahheim.com/builds/latex2go</loc></url>
+  <url><loc>https://zacariahheim.com/builds/mcp-edge-gateway</loc></url>
+  <url><loc>https://zacariahheim.com/builds/mcp-memory</loc></url>
+  <url><loc>https://zacariahheim.com/builds/mealie-mcp</loc></url>
+  <url><loc>https://zacariahheim.com/builds/mzi</loc></url>
+  <url><loc>https://zacariahheim.com/builds/openiris</loc></url>
+  <url><loc>https://zacariahheim.com/thinking/outbox-done-right</loc></url>
+  <url><loc>https://zacariahheim.com/thinking/planner-is-the-product</loc></url>
+  <url><loc>https://zacariahheim.com/builds/poml-go</loc></url>
+  <url><loc>https://zacariahheim.com/builds/prometheon</loc></url>
+  <url><loc>https://zacariahheim.com/builds/solidjs-charts</loc></url>
+  <url><loc>https://zacariahheim.com/builds/thothnetwork</loc></url>
+  <url><loc>https://zacariahheim.com/thinking/timeseries-sqlite-go</loc></url>
+  <url><loc>https://zacariahheim.com/thinking/topology-of-cognition</loc></url>
+  <url><loc>https://zacariahheim.com/builds/torodial-attention</loc></url>
+  <url><loc>https://zacariahheim.com/thinking/universal-high-income</loc></url>
+  <url><loc>https://zacariahheim.com/builds/virtual-vectorfs</loc></url>
+  <url><loc>https://zacariahheim.com/builds/wyrmlock</loc></url>
 </urlset>

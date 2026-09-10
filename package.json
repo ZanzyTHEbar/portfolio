@@ -10,10 +10,12 @@
   "packageManager": "pnpm@10.22.0",
   "scripts": {
     "dev": "vite",
-    "build": "velite && vite build",
+    "build": "pnpm sitemap && velite && vite build",
     "postbuild": "node scripts/inject-meta.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "test": "node --test scripts/*.test.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {

@@ -8,18 +8,18 @@ export const Route = createFileRoute("/builds/")({
 
 type TierFilter = NonNullable<Project["tier"]> | "all";
 
-const TIERS: TierFilter[] = ["all", "S", "A", "workshop", "archive"];
+const TIERS: TierFilter[] = ["all", "S", "A", "workshop"];
 
 const byPriority = (a: Project, b: Project) =>
   a.priority - b.priority || Number(b.featured) - Number(a.featured);
 
 function BuildsPage() {
   const [tier, setTier] = useState<TierFilter>("all");
+  const tiers: TierFilter[] = projects.some((p) => p.tier === "archive")
+    ? [...TIERS, "archive"]
+    : TIERS;
   const dossiers = useMemo(
-    () =>
-      [...projects]
-        .sort(byPriority)
-        .filter((p) => tier === "all" || p.tier === tier),
+    () => [...projects].sort(byPriority).filter((p) => tier === "all" || p.tier === tier),
     [tier],
   );
 
@@ -29,26 +29,18 @@ function BuildsPage() {
         <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
           Builds // The archive
         </p>
-        <h1 className="font-sans text-3xl font-medium tracking-tight">
-          Systems under constraint
-        </h1>
+        <h1 className="font-sans text-3xl font-medium tracking-tight">Systems under constraint</h1>
       </header>
 
-      <div
-        role="group"
-        aria-label="Filter by tier"
-        className="flex flex-wrap gap-2"
-      >
-        {TIERS.map((t) => (
+      <div role="group" aria-label="Filter by tier" className="flex flex-wrap gap-2">
+        {tiers.map((t) => (
           <button
             key={t}
             type="button"
             aria-pressed={tier === t}
             onClick={() => setTier(t)}
             className={`hairline px-3 py-1.5 font-mono text-xs uppercase tracking-kicker transition-colors ${
-              tier === t
-                ? "bg-surface text-fg"
-                : "bg-elevated text-muted hover:text-fg"
+              tier === t ? "bg-surface text-fg" : "bg-elevated text-muted hover:text-fg"
             }`}
           >
             {t === "all" ? "All" : `Tier ${t}`}
@@ -56,10 +48,7 @@ function BuildsPage() {
         ))}
       </div>
 
-      <p
-        aria-live="polite"
-        className="font-mono text-xs uppercase tracking-kicker text-subtle"
-      >
+      <p aria-live="polite" className="font-mono text-xs uppercase tracking-kicker text-subtle">
         {dossiers.length} of {projects.length} dossiers
       </p>
 
@@ -101,9 +90,7 @@ function BuildsPage() {
           ))}
         </ul>
       ) : (
-        <p className="text-sm text-muted">
-          No dossiers filed under Tier {tier} yet.
-        </p>
+        <p className="text-sm text-muted">No dossiers filed under Tier {tier} yet.</p>
       )}
 
       <script

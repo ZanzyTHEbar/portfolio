@@ -6,16 +6,10 @@ const editorial = {
   slug: s.string(),
   title: s.string(),
   tier: s.enum(["S", "A", "workshop", "archive"]).optional(),
-  status: s
-    .enum(["active", "maintained", "completed", "archived", "experimental"])
-    .optional(),
-  dates: s
-    .object({ start: s.string().optional(), end: s.string().optional() })
-    .optional(),
+  status: s.enum(["active", "maintained", "completed", "archived", "experimental"]).optional(),
+  dates: s.object({ start: s.string().optional(), end: s.string().optional() }).optional(),
   dimensions: s
-    .array(
-      s.enum(["build", "research", "experiment", "teaching", "opinion", "life"]),
-    )
+    .array(s.enum(["build", "research", "experiment", "teaching", "opinion", "life"]))
     .optional(),
   thesis: s.string(),
   stack: s.array(s.string()).default([]),
@@ -40,12 +34,6 @@ const projects = defineCollection({
   schema: s.object({ ...editorial, body: s.mdx() }),
 });
 
-const investigations = defineCollection({
-  name: "Investigation",
-  pattern: "investigations/*.mdx",
-  schema: s.object({ ...editorial, body: s.mdx() }),
-});
-
 const notes = defineCollection({
   name: "Note",
   pattern: "notes/*.mdx",
@@ -66,5 +54,5 @@ export default defineConfig({
     clean: true,
     format: "esm",
   },
-  collections: { projects, investigations, notes },
+  collections: { projects, notes },
 });
