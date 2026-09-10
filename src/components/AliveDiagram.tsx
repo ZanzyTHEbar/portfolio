@@ -41,7 +41,7 @@ const NODES: NodeDef[] = [
   { id: "hardware", label: "HARDWARE", x: 638, y: 159, w: 140, h: 42 },
   { id: "research", label: "RESEARCH", x: 638, y: 248, w: 140, h: 42 },
   { id: "reality", label: "REALITY", x: 803, y: 159, w: 120, h: 42 },
-  { id: "you-are-here", label: "YOU ARE HERE", x: 788, y: 64, w: 150, h: 30 },
+  { id: "you-are-here", label: "YOU ARE HERE", x: 788, y: 48, w: 150, h: 46 },
 ];
 
 const CHIP_CAPTION = "No project selected.";
@@ -213,7 +213,7 @@ export function AliveDiagram({ items, selected, onSelect }: AliveDiagramProps) {
           />
         ))}
       </svg>
-      <div id={STATUS_ID} role="tooltip" className="mt-4 min-h-20 border-t border-border pt-3">
+      <div id={STATUS_ID} className="mt-4 min-h-20 border-t border-border pt-3">
         {status ? (
           <>
             <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
