@@ -5,7 +5,7 @@ tier: A
 status: active
 dimensions:
   - build
-thesis: Self-hosted recipe infrastructure should be drivable by agents, not just browsers.
+thesis: Agents should be able to operate self-hosted recipe infrastructure.
 stack:
   - TypeScript
   - MCP
@@ -23,7 +23,7 @@ metrics: []
 
 ## System
 
-A Mealie instance holds recipes, shopping lists, and meal plans behind a REST API built for clicks. mealie-mcp exposes that whole API surface as MCP tools over StreamableHTTP — generated from the Mealie OpenAPI spec, with token auth, configurable base URL, and extras like TDEE-based nutrition planning — so cooking infrastructure becomes callable from Claude, Cursor, and other MCP clients.
+mealie-mcp exposes Mealie's recipes, shopping lists, and meal plans as StreamableHTTP MCP tools. It is generated from the Mealie OpenAPI specification and supports token authentication, a configurable base URL, and TDEE-based nutrition planning. MCP clients such as Claude and Cursor can call the resulting tools.
 
 ## Evidence
 

@@ -11,17 +11,17 @@ dimensions:
   - research
 ---
 
-Long-running coding agents do not fail for lack of code generation; they fail because planning evaporates between turns. BRHP treats that planning as the actual product: a planning-harness kernel that keeps an explicit, persistent session instead of disposable chat residue.
+BRHP stores planning state for long-running coding agents. It is a planning-harness kernel with explicit, persistent sessions.
 
-BRHP stands for Boltzmann Recursive Hierarchical Planning. It models a plan as a graph of scopes, nodes, and edges, each carrying utility, confidence, and entropy scores — so the system always knows what is unresolved and whether the plan is converging.
+BRHP stands for Boltzmann Recursive Hierarchical Planning. It models a plan as a graph of scopes, nodes, and edges. Each element carries utility, confidence, and entropy scores to identify unresolved work and plan convergence.
 
-Selection over that graph is temperature-controlled: the frontier of open work is sampled, not just listed, and entropy-drift signals say whether the plan is settling or thrashing. Validation is deterministic — snapshots record verdicts that can be inspected later rather than trusted on vibe.
+Frontier selection is temperature-controlled. Entropy-drift signals track whether a plan is settling or thrashing. Deterministic validation snapshots record verdicts for later inspection.
 
-It ships as an OpenCode plugin: a `/brhp` command family (`status`, `plan`, `resume`, `history`, `inspect`), a TUI sidebar showing live planning state, and sessions persisted locally in `.opencode/brhp/brhp.db`. Project instructions stay in the loop from user- and project-level directories.
+The OpenCode plugin provides `/brhp` commands for `status`, `plan`, `resume`, `history`, and `inspect`. Its TUI sidebar shows live planning state. Sessions persist locally in `.opencode/brhp/brhp.db`. It reads project instructions from user- and project-level directories.
 
-The lineage is deliberate: ReAct's interleaved reasoning, Tree- and Graph-of-Thought search, LLM+P's classical-planning grounding, and the multi-agent scaffolding of MetaGPT and SWE-agent — synthesized one level up into a meta-harness.
+The design draws on ReAct's interleaved reasoning, Tree- and Graph-of-Thought search, LLM+P's classical-planning grounding, and the multi-agent scaffolding of MetaGPT and SWE-agent.
 
-The NON-claims are explicit and load-bearing: no formal verification, no optimality guarantees, not benchmark-proven — and policy provenance plus authoritative completion are deferred to later versions. BRHP promises inspectable planning state, nothing grander, which is exactly why it is believable.
+BRHP makes no claims of formal verification, optimality guarantees, or benchmark results. Policy provenance and authoritative completion are deferred to later versions.
 
 ## Evidence
 

@@ -5,7 +5,7 @@ tier: S
 status: maintained
 dimensions:
   - build
-thesis: Application faults should carry stable codes across process boundaries, not ad-hoc strings.
+thesis: Application faults should carry stable codes across process boundaries.
 stack:
   - Go
 domains:
@@ -21,11 +21,11 @@ metrics: []
 
 ## Strange Idea
 
-What if every error an application raised already knew its stable fault code and its transport code?
+Each application fault carries a stable fault code and a transport code.
 
 ## Hypothesis
 
-If application faults carry durable codes like `validation.failed` while process boundaries still speak transport codes like `InvalidArgument`, then error handling stays structured end to end without translation layers in every service.
+Durable application codes such as `validation.failed` and transport codes such as `InvalidArgument` can keep errors structured across process boundaries.
 
 ## Constraints
 
@@ -35,21 +35,21 @@ If application faults carry durable codes like `validation.failed` while process
 
 ## System
 
-Error strings rot: unmatchable, untranslatable, unmappable at boundaries. faults-go is a small Go library for stable, structured application faults — `New` and `Wrap` for creating and wrapping with normalized key/value details, `CodeOf` / `IsCode` inspection, process-wide code-to-transport registration — built on errbuilder-go for transport-aware error values with assert-lib reporting integration.
+Error strings alone do not provide stable matching, translation, or boundary mapping. faults-go is a small Go library for stable, structured application faults. `New` and `Wrap` create and wrap faults with normalized key/value details. `CodeOf` and `IsCode` inspect codes. Process-wide registration maps application codes to transport codes. The library builds on errbuilder-go for transport-aware error values and integrates assert-lib reporting.
 
 ## Reality
 
-Open-source Go module with CI, Go Reference docs, and MIT license, under active authorship alongside its two sibling libraries.
+The open-source Go module has CI, Go Reference docs, and an MIT license. It is part of a three-library set with errbuilder-go and assert-lib.
 
 ## Decisions
 
-- Separate the durable application code from the transport code instead of overloading one string.
-- Build on errbuilder-go and assert-lib rather than standing alone.
+- Durable application codes and transport codes remain separate.
+- The library builds on errbuilder-go and assert-lib.
 
 ## Open Questions
 
-- Process-wide code-to-transport registration is global state by design — where does it surprise multi-package callers?
-- faults-go wraps errbuilder-go and reports via assert-lib — does the trio stay three modules or collapse into one?
+- Process-wide code-to-transport registration uses global state. Where does it surprise multi-package callers?
+- faults-go wraps errbuilder-go and reports via assert-lib. Does the trio stay three modules or collapse into one?
 - Beyond validation/database examples, which fault codes actually get reused across projects?
 
 ## Evidence

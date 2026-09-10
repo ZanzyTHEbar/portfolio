@@ -1,9 +1,4 @@
-import {
-  Link,
-  Outlet,
-  createRootRoute,
-  useRouterState,
-} from "@tanstack/react-router";
+import { Link, Outlet, createRootRoute, useRouterState } from "@tanstack/react-router";
 import { MotionConfig, motion } from "motion/react";
 import { lab } from "@/content/lab";
 
@@ -31,14 +26,11 @@ function RootComponent() {
         Skip to content
       </a>
       <header className="border-b border-border">
-        <div className="page-wrap flex items-center justify-between gap-4 py-4">
-          <Link
-            to="/"
-            className="font-mono text-xs font-medium uppercase tracking-kicker text-fg"
-          >
+        <div className="page-wrap flex flex-col items-start gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <Link to="/" className="font-mono text-xs font-medium uppercase tracking-kicker text-fg">
             The Zacariah Heim Lab
           </Link>
-          <nav aria-label="Primary" className="flex items-center gap-4">
+          <nav aria-label="Primary" className="flex flex-wrap items-center gap-x-4 gap-y-2">
             {NAV.map((item) => (
               <Link
                 key={item.to}
@@ -51,7 +43,7 @@ function RootComponent() {
           </nav>
           <p className="hidden items-center gap-2 font-mono text-xs uppercase tracking-kicker text-subtle sm:flex">
             <span aria-hidden className="size-1.5 rounded-full bg-ok" />
-            System nominal
+            Available
           </p>
         </div>
       </header>
@@ -67,8 +59,7 @@ function RootComponent() {
       <footer className="border-t border-border">
         <div className="page-wrap flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-md font-mono text-xs uppercase leading-relaxed tracking-kicker text-subtle">
-            An industrial research lab in website form — strange ideas, working
-            systems.
+            Industrial research in website form — ideas and working systems.
           </p>
           <nav aria-label="Contact" className="flex items-center gap-4">
             <a
@@ -101,9 +92,8 @@ function RootComponent() {
       <noscript>
         <h1>The Zacariah Heim Lab</h1>
         <p>
-          I turn strange ideas into working systems. I build at the boundaries
-          — software and hardware, agents and operating systems, research and
-          engineering.
+          I turn strange ideas into working systems. I build at the boundaries — software and
+          hardware, agents and operating systems, research and engineering.
         </p>
         <nav>
           <ul>
@@ -170,21 +160,16 @@ function RootComponent() {
 function DossierNotFound() {
   return (
     <main className="page-wrap flex min-h-[60dvh] flex-col items-start justify-center gap-4 py-16">
-      <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-        Dossier 404 // Not in the archive
-      </p>
-      <h1 className="font-sans text-3xl font-medium tracking-tight">
-        This specimen was never collected.
-      </h1>
+      <p className="font-mono text-xs uppercase tracking-kicker text-subtle">404 // Not found</p>
+      <h1 className="font-sans text-3xl font-medium tracking-tight">Page not found.</h1>
       <p className="max-w-md text-sm text-muted">
-        The route you requested does not exist in the lab. Return to the bench
-        and pick another drawer.
+        The route you requested does not exist. Choose another page.
       </p>
       <Link
         to="/"
         className="font-mono text-xs uppercase tracking-kicker text-fg underline underline-offset-4"
       >
-        Back to Explore
+        Back to home
       </Link>
     </main>
   );

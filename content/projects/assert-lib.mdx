@@ -20,11 +20,11 @@ metrics: []
 
 ## Strange Idea
 
-What if an assertion library refused to crash your program unless you explicitly opted in?
+An assertion library can log and continue by default, with explicit crash opt-in.
 
 ## Hypothesis
 
-If assertions are safe by default — log and continue — with crash, silent, debug, and verbose modes behind explicit options, then systems and real-time code can assert freely in paths where a panic would be worse than the bug.
+Safe-by-default assertions with crash, silent, debug, and verbose modes can support systems and real-time paths where a panic would be worse than the bug.
 
 ## Constraints
 
@@ -34,21 +34,21 @@ If assertions are safe by default — log and continue — with crash, silent, d
 
 ## System
 
-Assertion libraries usually pick one posture: crash or print. assert-lib is a lightweight Go assertion library that is safe by default — no instance required — with behavior composed through the Function Options pattern: JSON or text formatters, crash-on-failure opt-in, silent mode, debug and verbose stack-trace modes, and testing/production presets.
+assert-lib is a lightweight Go assertion library that logs and continues by default. It uses package-level functions, so no instance is required. Function Options compose behavior. The library provides JSON or text formatters, crash-on-failure opt-in, silent mode, debug and verbose stack-trace modes, and testing and production presets.
 
 ## Reality
 
-Open-source Go module with Go Reference docs and examples, authored for systems and real-time use.
+The open-source Go module has Go Reference docs and examples. It was authored for systems and real-time use.
 
 ## Decisions
 
-- Safe-by-default with opt-in crashing, instead of crash-first with opt-out.
-- Function Options pattern for behavior composition over instance configuration.
+- Crashing requires explicit opt-in.
+- Function Options compose behavior.
 
 ## Open Questions
 
 - Do deferred/batched assertions hold up in real-time paths, or does per-assertion checking win where latency matters?
-- README lists Text, JSON, and YAML formatters — does YAML earn its keep, or does the surface shrink to JSON + text?
+- README lists Text, JSON, and YAML formatters. Does YAML earn its keep, or does the surface shrink to JSON + text?
 - Package-level functions vs. instance handlers: does one usage win, or do both stay?
 
 ## Evidence

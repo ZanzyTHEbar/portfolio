@@ -5,7 +5,7 @@ tier: S
 status: maintained
 dimensions:
   - build
-thesis: Project errors need one standard shape with meaningful codes, not bespoke wrapping everywhere.
+thesis: Project errors need a standard shape with meaningful codes.
 stack:
   - Go
 domains:
@@ -20,11 +20,11 @@ metrics: []
 
 ## Strange Idea
 
-What if every project error came from one builder with codes that actually mean something?
+Project errors can use one builder with meaningful codes.
 
 ## Hypothesis
 
-If errors are built through a single Builder with a gRPC-inspired code set, an error map for complex flows, and structured details, then error handling stays uniform across projects instead of drifting per package.
+A single Builder with a gRPC-inspired code set, an error map for complex flows, and structured details can keep error handling uniform across projects.
 
 ## Constraints
 
@@ -34,15 +34,15 @@ If errors are built through a single Builder with a gRPC-inspired code set, an e
 
 ## System
 
-Inconsistent error handling is a tax on every reader: new shapes per package, codes invented at the call site. errbuilder-go is a lightweight custom error-builder library for Go — Builder-pattern construction with message, code, and details, an `ErrMap` for collecting errors across complex or deferred flows, and builtin wrappers demonstrating common usage.
+Packages can define different error shapes and call-site codes. errbuilder-go is a lightweight custom error-builder library for Go. Its Builder constructs errors with a message, code, and details. `ErrMap` collects errors across complex or deferred flows. Builtin wrappers demonstrate common usage.
 
 ## Reality
 
-Open-source Go module, originally built for the author's own projects and generalized; pairs with assert-lib.
+The open-source Go module was originally built for the author's own projects and then generalized. It pairs with assert-lib.
 
 ## Open Questions
 
-- README install/usage snippets use `errorbuilder` and `errsx` import paths that don't match the module name — which path is canonical?
+- README install/usage snippets use `errorbuilder` and `errsx` import paths that do not match the module name. Which path is canonical?
 - Are the 5 builtin wrappers in `errors.go` enough, or does every new project grow its own set anyway?
 - Does `ErrMap` actually cover deferred/multi-error flows in practice, or do callers bypass it?
 

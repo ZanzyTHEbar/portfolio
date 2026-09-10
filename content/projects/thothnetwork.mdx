@@ -6,7 +6,7 @@ status: experimental
 dimensions:
   - build
   - experiment
-thesis: Millions of IoT devices need a backend designed for concurrency first, not retrofitted to it.
+thesis: Millions of IoT devices need a concurrency-first backend.
 stack:
   - Go
   - NATS
@@ -23,7 +23,7 @@ metrics: []
 
 ## System
 
-IoT backends usually start as a broker and accrete everything else until they fall over. ThothNetwork is a real-time IoT backend in Go built for scale from the start — hexagonal architecture, NATS and libp2p networking, device management with digital twins, sub-second streaming, and X.509/JWT security — begun as a decentralized battery-management backbone and grown into a general-purpose system with multi-agent-task potential.
+ThothNetwork is a real-time IoT backend in Go. It uses hexagonal architecture, NATS and libp2p networking, device management with digital twins, sub-second streaming, and X.509/JWT security. It began as a decentralized battery-management backbone. The project identifies multi-agent tasks as a potential general-purpose use.
 
 ## Evidence
 

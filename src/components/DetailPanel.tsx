@@ -42,11 +42,9 @@ function PanelBody({ item }: { item: DetailPanelItem }) {
   return (
     <>
       <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-        Pinned dossier // {item.slug}
+        Pinned project // {item.slug}
       </p>
-      <h3 className="mt-2 font-sans text-xl font-medium tracking-tight">
-        {item.title}
-      </h3>
+      <h3 className="mt-2 font-sans text-xl font-medium tracking-tight">{item.title}</h3>
       <p className="mt-2 text-sm text-muted">{item.thesis}</p>
       <Link
         to="/builds/$slug"

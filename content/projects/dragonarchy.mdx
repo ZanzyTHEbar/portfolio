@@ -6,7 +6,7 @@ status: maintained
 dimensions:
   - build
   - experiment
-thesis: A workstation should be reproducible from declarations, not from memory and shell history.
+thesis: Declarative configuration can reproduce a workstation.
 stack:
   - Ansible
   - Chezmoi
@@ -23,7 +23,7 @@ metrics: []
 
 ## System
 
-Workstations drift: packages, dotfiles, and secrets diverge until reinstalls become archaeology. Dragonarchy is an opinionated Arch/Hyprland setup run as a declarative control plane — Ansible for system state, chezmoi for user dotfiles, manifests for ownership, age/sops for secrets — with the legacy stow-and-scripts flow deprecated behind a guard. Personal-host scoped by its own admission; a reference, not a distro.
+Packages, dotfiles, and secrets can diverge across a workstation. Dragonarchy is an opinionated Arch/Hyprland setup. Ansible manages system state, chezmoi manages user dotfiles, manifests record ownership, and age/sops manages secrets. The legacy stow-and-scripts flow is deprecated behind a guard. The project is scoped to a personal host and serves as a reference configuration, not a distribution.
 
 ## Evidence
 

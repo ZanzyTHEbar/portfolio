@@ -5,7 +5,7 @@ tier: S
 status: maintained
 dimensions:
   - build
-thesis: Charts should feel native inside SolidJS reactivity instead of fighting it.
+thesis: Charts should follow SolidJS reactivity.
 stack:
   - SolidJS
   - Chart.js
@@ -20,30 +20,30 @@ metrics: []
 
 ## Strange Idea
 
-What if Chart.js felt native inside SolidJS reactivity?
+Chart.js bindings can follow SolidJS reactivity.
 
 ## Hypothesis
 
-If chart bindings follow Solid's fine-grained reactivity, then dashboards update without framework ceremony or wasted re-renders.
+Fine-grained bindings may update dashboards without full-chart rerenders or extra framework code.
 
 ## Constraints
 
-- bundle size (tree-shaking matters)
-- Chart.js registration ceremony (controllers, elements, scales, plugins)
-- Solid reactivity semantics (no virtual-DOM assumptions)
+- bundle size and tree shaking
+- required Chart.js registration for controllers, elements, scales, and plugins
+- Solid reactivity semantics without virtual-DOM assumptions
 
 ## System
 
-Dashboards usually pay a framework tax: wrapper components that re-render whole charts on every tick. This is a SolidJS wrapper around Chart.js — chart-type components over explicitly registered Chart.js pieces, with a tree-shakable import path so applications only bundle the controllers and scales they use.
+solid-chartjs wraps Chart.js for SolidJS. It provides chart-type components over explicitly registered Chart.js pieces. Its tree-shakable import path lets applications bundle only the controllers and scales they use.
 
 ## Reality
 
-Published npm package with versioned releases, a demo site, and usage docs. The repo under the author's account is a maintained fork; what it carries beyond upstream is unstated here.
+The package is published to npm with versioned releases, a demo site, and usage docs. The repository under the author's account is a maintained fork. Its differences from upstream are unstated here.
 
 ## Open Questions
 
-- What does this fork carry beyond upstream — fixes, tracking, or personal mirror?
-- Bundle-size and update-path behavior against current Chart.js releases?
+- Does this fork carry fixes, tracking, or serve as a personal mirror?
+- How do bundle size and update behavior compare with current Chart.js releases?
 
 ## Evidence
 

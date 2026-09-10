@@ -5,7 +5,7 @@ tier: A
 status: maintained
 dimensions:
   - build
-thesis: Prompts need structure and styling as separate concerns, not string concatenation.
+thesis: Prompts need separate structure and styling.
 stack:
   - Go
 domains:
@@ -20,7 +20,7 @@ metrics: []
 
 ## System
 
-Prompts grown by concatenation rot: no structure, no reuse, formatting quirks leaking into logic. poml-go is a pure-Go implementation of Microsoft's Prompt Orchestration Markup Language — HTML-like semantic components, a CSS-like styling system decoupled from content, a templating engine with variables and loops, plus a Go SDK and CLI — so agent prompts become maintainable artifacts instead of fragile strings.
+Prompts assembled through string concatenation can lack structure and reuse, and formatting can leak into logic. poml-go is a pure-Go implementation of Microsoft's Prompt Orchestration Markup Language. It provides HTML-like semantic components, a CSS-like styling system separate from content, a templating engine with variables and loops, and a Go SDK and CLI. The design separates agent-prompt content from styling.
 
 ## Evidence
 

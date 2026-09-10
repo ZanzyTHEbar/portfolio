@@ -6,7 +6,7 @@ status: experimental
 dimensions:
   - build
   - experiment
-thesis: Bank and crypto transactions should land in Firefly III without manual imports.
+thesis: Bank and crypto transactions can land in Firefly III through a Go importer.
 stack:
   - Go
   - Docker
@@ -21,7 +21,7 @@ metrics: []
 
 ## System
 
-Transactions scatter across crypto wallets and bank accounts while the ledger sits empty waiting for CSV uploads. Firedragon is a weekend-built Go importer that pulls wallet and bank transactions — via unified APIs like Enable Banking — into Firefly III for unified tracking. Self-declared unstable and not for production; an experiment in collapsing manual import toil, kept honest about its state.
+Bank accounts and crypto wallets produce transactions outside Firefly III. Firedragon is a weekend-built Go importer. It pulls wallet and bank transactions through unified APIs such as Enable Banking and imports them into Firefly III for unified tracking. The project is self-declared unstable, unsuitable for production, and experimental.
 
 ## Evidence
 
