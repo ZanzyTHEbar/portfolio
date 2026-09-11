@@ -11,7 +11,7 @@ export const Route = createFileRoute("/")({
 });
 
 const NOSCRIPT_LABELS = [
-  "STRANGE IDEA",
+  "IDEA",
   "HYPOTHESIS",
   "CONSTRAINT",
   "SYSTEM",
@@ -32,17 +32,17 @@ function ExplorePage() {
   const pinnedItem = items.find((i) => i.slug === pinned) ?? null;
   const linkOuts = [
     {
-      kicker: "Currently Thinking",
+      kicker: "X",
       label: lab.currentlyThinking.label,
       href: lab.currentlyThinking.href,
     },
     {
       kicker: "Consultancy",
-      label: "Consultancy — client work",
+      label: "Consultancy",
       href: "https://zacariahheim.com",
     },
     ...lab.benchScraps.map((g) => ({
-      kicker: "Bench Scraps",
+      kicker: "Gists",
       label: g.label,
       href: g.href,
     })),
@@ -51,30 +51,30 @@ function ExplorePage() {
   return (
     <div className="page-wrap flex flex-col gap-12 py-12">
       <section className="reveal flex max-w-3xl flex-col gap-4">
-        <p className="font-mono text-xs uppercase tracking-kicker text-subtle">Thesis</p>
+        <p className="font-mono text-xs uppercase tracking-kicker text-subtle">Work</p>
         <h1 className="font-sans text-3xl font-medium leading-tight tracking-tight">
           {lab.thesis}
         </h1>
       </section>
-      <section aria-label="Alive diagram" className="reveal reveal-2 flex flex-col gap-4">
+      <section aria-label="Project diagram" className="reveal reveal-2 flex flex-col gap-4">
         <AliveDiagram items={items} selected={pinned} onSelect={setPinned} />
         <DetailPanel item={pinnedItem} />
       </section>
-      <section aria-label="Tier S dossiers" className="reveal reveal-3 flex flex-col gap-4">
+      <section aria-label="Selected projects" className="reveal reveal-3 flex flex-col gap-4">
         <h2 className="font-mono text-xs uppercase tracking-kicker text-subtle">
-          Tier S // Full dossiers
+          Selected projects
         </h2>
         <ul className="grid gap-4 sm:grid-cols-2">
           {tierS.map((p) => (
             <li key={p.slug} className="hairline bg-elevated p-5">
               <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-                Tier S{p.status ? ` // Status: ${p.status}` : ""}
+                Tier S{p.status ? ` · Status: ${p.status}` : ""}
               </p>
               <h3 className="mt-2 font-sans text-xl font-medium tracking-tight">{p.title}</h3>
               <p className="mt-2 text-sm text-muted">{p.thesis}</p>
               {p.stack.length > 0 && (
                 <p className="mt-3 font-mono text-xs uppercase tracking-kicker text-subtle">
-                  Stack // {p.stack.join(" · ")}
+                  Stack: {p.stack.join(" · ")}
                 </p>
               )}
               <Link
@@ -82,7 +82,7 @@ function ExplorePage() {
                 params={{ slug: p.slug }}
                 className="mt-4 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-kicker text-fg"
               >
-                Inspect <ArrowRight size={16} aria-hidden />
+                View project <ArrowRight size={16} aria-hidden />
               </Link>
             </li>
           ))}
@@ -104,7 +104,7 @@ function ExplorePage() {
       </section>
       <section aria-label="Elsewhere" className="reveal reveal-5 flex flex-col gap-4">
         <h2 className="font-mono text-xs uppercase tracking-kicker text-subtle">
-          Elsewhere // Link-outs
+          Elsewhere
         </h2>
         <ul className="grid gap-4 sm:grid-cols-3">
           {linkOuts.map((l) => (
@@ -123,9 +123,9 @@ function ExplorePage() {
       <noscript>
         <div className="flex flex-col gap-4">
           <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-            Alive diagram — static
+            Project diagram
           </p>
-          <svg viewBox="0 0 960 420" role="img" aria-label="Strange idea to reality pipeline">
+          <svg viewBox="0 0 960 420" role="img" aria-label="Project stages">
             {NOSCRIPT_LABELS.map((t, i) => (
               <text
                 key={t}

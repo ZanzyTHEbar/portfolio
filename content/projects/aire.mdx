@@ -8,7 +8,7 @@ dates:
 dimensions:
   - research
   - experiment
-thesis: An agent intermediate representation — ambition ahead of implementation.
+thesis: AIRE defines an adapter-first execution IR for agent workflows.
 stack:
   - Agents
   - Runtimes
@@ -28,17 +28,17 @@ metrics: []
 
 ## System
 
-Agents need something between a prompt and a process: an execution intermediate representation. AIRE is a harness-agnostic tool-execution runtime — an adapter-first design where natural-language plans compile to an IR and execute deterministically through adapters (a process adapter ships; a compiler seam for richer workflows is in progress). The current checkout is a clean-room v1 in TypeScript on Bun; the package stays private until the API settles.
+AIRE is a private clean-room v1 TypeScript library for Bun. Its runtime executes a versioned intermediate representation through adapters. A process adapter ships, and v1 workflow compilation is sequential-only.
 
 ## Reality
 
-Active clean-room rewrite; the documented behavior above describes the v1 scaffold, not a finished release.
+The package remains private while build, publishing, and Node-compatibility boundaries are finalized.
 
 ## Open Questions
 
-- What the compiler seam grows into — which workflow shapes the IR can express beyond sequential steps.
-- Which adapters come after process execution, and what the public API freeze looks like.
+- IR workflow shapes beyond sequential steps.
+- Adapters after process execution and the public API boundary.
 
 ## Evidence
 
-- [ZanzyTHEbar/aire](https://github.com/ZanzyTHEbar/aire) — harness-agnostic agentic tool runtime.
+- [ZanzyTHEbar/aire](https://github.com/ZanzyTHEbar/aire): Harness-agnostic tool-execution runtime.

@@ -8,7 +8,7 @@ dates:
 dimensions:
   - build
   - research
-thesis: Persistent agent memory in Go — 2× faster, 40% leaner, one binary.
+thesis: Persistent MCP memory in a single Go binary backed by libSQL.
 stack:
   - Go
   - libSQL
@@ -34,11 +34,11 @@ metrics:
 
 ## Strange Idea
 
-Can persistent semantic memory be useful without becoming its own infrastructure project?
+Persistent agent memory runs from a single Go binary backed by libSQL.
 
 ## Hypothesis
 
-If the memory server is a single Go binary on libSQL, then it beats the TS original on speed and footprint.
+Under equivalent ingest, recall, and hybrid-search workloads, does the Go/libSQL implementation complete operations faster and use less memory than the TypeScript original?
 
 ## Constraints
 
@@ -48,17 +48,18 @@ If the memory server is a single Go binary on libSQL, then it beats the TS origi
 
 ## System
 
-Agent memory usually grows into its own infrastructure project. The bet here is a single Go binary on libSQL — vector plus hybrid search, knowledge graphs, multi-project isolation, and metrics.
+MCP Memory is a single Go binary on libSQL with vector and hybrid search, knowledge graphs, multi-project isolation, and metrics.
 
 ## Reality
 
-Author-reported 2× performance and 40% lower memory versus the TypeScript original.
+The repository claims 2× performance and 40% lower memory than the TypeScript original. Both figures remain unverified.
 
 ## Open Questions
 
-- Benchmark methodology is unmeasured here; the 2×/40% figures await a reproducible harness.
-- Which workloads? Ingest vs recall vs hybrid?
+- The repository contains database benchmark tests, but no comparative harness supporting the 2x and 40% claims.
+- Comparative results for ingest, recall, and hybrid search are not documented.
 
 ## Evidence
 
-- [ZanzyTHEbar/mcp-memory-libsql-go](https://github.com/ZanzyTHEbar/mcp-memory-libsql-go) — persistent MCP memory on libSQL.
+- [ZanzyTHEbar/mcp-memory-libsql-go](https://github.com/ZanzyTHEbar/mcp-memory-libsql-go): persistent MCP memory on libSQL.
+- [database_bench_test.go](https://github.com/ZanzyTHEbar/mcp-memory-libsql-go/blob/main/internal/database/database_bench_test.go): repository database benchmark tests.

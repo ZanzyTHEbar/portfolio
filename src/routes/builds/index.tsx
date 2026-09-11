@@ -13,12 +13,19 @@ const TIERS: TierFilter[] = ["all", "S", "A", "workshop"];
 const byPriority = (a: Project, b: Project) =>
   a.priority - b.priority || Number(b.featured) - Number(a.featured);
 
+const tierLabel = (tier: TierFilter): string => {
+  if (tier === "all") return "All projects";
+  if (tier === "archive") return "Earlier projects";
+  if (tier === "workshop") return "Workshop projects";
+  return `Tier ${tier} projects`;
+};
+
 function BuildsPage() {
   const [tier, setTier] = useState<TierFilter>("all");
   const tiers: TierFilter[] = projects.some((p) => p.tier === "archive")
     ? [...TIERS, "archive"]
     : TIERS;
-  const dossiers = useMemo(
+  const visibleProjects = useMemo(
     () => [...projects].sort(byPriority).filter((p) => tier === "all" || p.tier === tier),
     [tier],
   );
@@ -27,12 +34,12 @@ function BuildsPage() {
     <div className="page-wrap flex flex-col gap-8 py-12">
       <header className="flex max-w-3xl flex-col gap-2">
         <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-          Builds // The archive
+          Builds
         </p>
-        <h1 className="font-sans text-3xl font-medium tracking-tight">Systems under constraint</h1>
+        <h1 className="font-sans text-3xl font-medium tracking-tight">Projects</h1>
       </header>
 
-      <div role="group" aria-label="Filter by tier" className="flex flex-wrap gap-2">
+      <div role="group" aria-label="Filter projects" className="flex flex-wrap gap-2">
         {tiers.map((t) => (
           <button
             key={t}
@@ -43,21 +50,21 @@ function BuildsPage() {
               tier === t ? "bg-surface text-fg" : "bg-elevated text-muted hover:text-fg"
             }`}
           >
-            {t === "all" ? "All" : `Tier ${t}`}
+            {tierLabel(t)}
           </button>
         ))}
       </div>
 
       <p aria-live="polite" className="font-mono text-xs uppercase tracking-kicker text-subtle">
-        {dossiers.length} of {projects.length} dossiers
+        {visibleProjects.length} of {projects.length} projects
       </p>
 
-      {dossiers.length > 0 ? (
+      {visibleProjects.length > 0 ? (
         <ul className="grid gap-4 sm:grid-cols-2">
-          {dossiers.map((p) => (
+          {visibleProjects.map((p) => (
             <li key={p.slug} className="hairline bg-elevated p-5">
               <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-                Tier {p.tier} // Status {p.status}
+                Tier {p.tier} · Status: {p.status}
               </p>
               <h2 className="mt-2 font-sans text-xl font-medium tracking-tight">
                 <Link
@@ -90,7 +97,7 @@ function BuildsPage() {
           ))}
         </ul>
       ) : (
-        <p className="text-sm text-muted">No dossiers filed under Tier {tier} yet.</p>
+        <p className="text-sm text-muted">No projects in this group.</p>
       )}
 
       <script

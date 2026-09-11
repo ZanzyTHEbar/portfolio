@@ -8,11 +8,10 @@ dates:
 dimensions:
   - build
   - research
-thesis: An AI agent runtime small and safe enough to actually deploy.
+thesis: A fork of sipeed/picoclaw with documented SecureBus and Isolated Tool Runtime boundaries.
 stack:
   - Go
   - libSQL
-  - MCP
   - DAG execution
 domains:
   - software
@@ -30,34 +29,34 @@ metrics: []
 
 ## Strange Idea
 
-Can an AI agent runtime be small enough to actually deploy?
+A Go binary can combine a narrow agent runtime with explicit trust boundaries.
 
 ## Hypothesis
 
-If capabilities are minimized and the trust boundary is explicit, then agents can run on constrained infrastructure.
+In ZanzyTHEbar/dragonscale, SecureBus documents tool capability declarations, secret injection, and output scanning around the in-process main runtime; network and filesystem enforcement remain follow-on work for the Isolated Tool Runtime.
 
 ## Constraints
 
-- memory
-- security
-- latency
-- tool isolation
-- local deployment
+- Tools declare capabilities to SecureBus.
+- SecureBus injects secrets and scans tool output.
+- The main runtime executes in process.
+- Network and filesystem enforcement remain follow-on isolation work.
+- Current MCP support is not documented.
 
 ## System
 
-Agents stay undelivered while runtimes are heavy and trust boundaries are vague. DragonScale answers with a compact Go single binary: a capability bus (SecureBus), persistent memory, DAG execution, and MCP tool isolation.
+ZanzyTHEbar/dragonscale is a fork of sipeed/picoclaw. It is a compact Go single binary with persistent memory, DAG execution, SecureBus, and an Isolated Tool Runtime. SecureBus documents tool capability declaration, secret injection, and output scanning. The main runtime executes in process, while network and filesystem enforcement are follow-on work. Current MCP support is not documented.
 
 ## Reality
 
-Open-source runtime under active development.
+Public documentation describes SecureBus and the Isolated Tool Runtime. Current MCP support is not documented.
 
 ## Open Questions
 
-- Benchmarks and evaluations are unmeasured on this page; performance claims await a reproducible harness.
-- How does SecureBus compare to MCP-native isolation?
-- Where the outbox table lives when the runtime itself is backed by libSQL.
+- No public benchmark or evaluation figure is documented.
+- Daemon and WASM isolation remain follow-on work for network and filesystem enforcement.
+- Whether libSQL backs an outbox table and what role it serves still need definition.
 
 ## Evidence
 
-- [ZanzyTHEbar/dragonscale](https://github.com/ZanzyTHEbar/dragonscale) — scalable AI agent personal assistant runtime.
+- [ZanzyTHEbar/dragonscale](https://github.com/ZanzyTHEbar/dragonscale): Go AI agent runtime.

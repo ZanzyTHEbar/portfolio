@@ -5,25 +5,25 @@ date: "2026-04-29"
 summary: "BRHP: planning as durable, inspectable state for long-running coding agents."
 projectSlugs:
   - brhp
-thesis: "Planning is the product: durable, inspectable planning state for coding agents."
+thesis: "BRHP records durable, inspectable planning state for coding agents."
 dimensions:
   - build
   - research
 ---
 
-BRHP stores planning state for long-running coding agents. It is a planning-harness kernel with explicit, persistent sessions.
+BRHP is a planning-harness kernel that records planning state for long-running coding agents in explicit, persistent sessions.
 
-BRHP stands for Boltzmann Recursive Hierarchical Planning. It models a plan as a graph of scopes, nodes, and edges. Each element carries utility, confidence, and entropy scores to identify unresolved work and plan convergence.
+BRHP stands for Boltzmann Recursive Hierarchical Planning. It models a plan as a graph of scopes, nodes, and edges. Each node carries utility, confidence, local-entropy, and validation-pressure scores.
 
-Frontier selection is temperature-controlled. Entropy-drift signals track whether a plan is settling or thrashing. Deterministic validation snapshots record verdicts for later inspection.
+Frontier selection is temperature-controlled. Entropy-drift signals track plans settling or thrashing. Deterministic validation snapshots record verdicts for inspection.
 
-The OpenCode plugin provides `/brhp` commands for `status`, `plan`, `resume`, `history`, and `inspect`. Its TUI sidebar shows live planning state. Sessions persist locally in `.opencode/brhp/brhp.db`. It reads project instructions from user- and project-level directories.
+The OpenCode plugin provides `/brhp` commands for `status`, `plan`, `resume`, `history`, and `inspect`. Its TUI sidebar shows live planning state. Sessions persist locally in `.opencode/brhp/brhp.db`. It reads project instructions from user-level and project-level directories.
 
 The design draws on ReAct's interleaved reasoning, Tree- and Graph-of-Thought search, LLM+P's classical-planning grounding, and the multi-agent scaffolding of MetaGPT and SWE-agent.
 
-BRHP makes no claims of formal verification, optimality guarantees, or benchmark results. Policy provenance and authoritative completion are deferred to later versions.
+BRHP makes no claims of formal verification, optimality guarantees, or benchmark results. Policy provenance is deferred to later versions; leaf completion is a current durable contract.
 
 ## Evidence
 
-- [The Planner Is the Product (X)](https://x.com/ZacariahHeim/status/2049451509549518900) — the author's article this note condenses.
-- [ZanzyTHEbar/brhp](https://github.com/ZanzyTHEbar/brhp) — the planning-harness kernel.
+- [The Planner Is the Product (X)](https://x.com/ZacariahHeim/status/2049451509549518900): the author's article this note condenses.
+- [ZanzyTHEbar/brhp](https://github.com/ZanzyTHEbar/brhp): the planning-harness kernel.

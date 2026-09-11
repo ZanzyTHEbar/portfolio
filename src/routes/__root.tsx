@@ -3,7 +3,7 @@ import { MotionConfig, motion } from "motion/react";
 import { lab } from "@/content/lab";
 
 const NAV = [
-  { to: "/", label: "Explore" },
+  { to: "/", label: "Home" },
   { to: "/builds", label: "Builds" },
   { to: "/thinking", label: "Thinking" },
   { to: "/trajectory", label: "Trajectory" },
@@ -11,7 +11,7 @@ const NAV = [
 ] as const;
 
 export const Route = createRootRoute({
-  notFoundComponent: DossierNotFound,
+  notFoundComponent: PageNotFound,
   component: RootComponent,
 });
 
@@ -28,7 +28,7 @@ function RootComponent() {
       <header className="border-b border-border">
         <div className="page-wrap flex flex-col items-start gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
           <Link to="/" className="font-mono text-xs font-medium uppercase tracking-kicker text-fg">
-            The Zacariah Heim Lab
+            Zacariah Heim
           </Link>
           <nav aria-label="Primary" className="flex flex-wrap items-center gap-x-4 gap-y-2">
             {NAV.map((item) => (
@@ -41,10 +41,6 @@ function RootComponent() {
               </Link>
             ))}
           </nav>
-          <p className="hidden items-center gap-2 font-mono text-xs uppercase tracking-kicker text-subtle sm:flex">
-            <span aria-hidden className="size-1.5 rounded-full bg-ok" />
-            Available
-          </p>
         </div>
       </header>
       <motion.main
@@ -59,7 +55,7 @@ function RootComponent() {
       <footer className="border-t border-border">
         <div className="page-wrap flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-md font-mono text-xs uppercase leading-relaxed tracking-kicker text-subtle">
-            Industrial research in website form — ideas and working systems.
+            Projects, notes, and links.
           </p>
           <nav aria-label="Contact" className="flex items-center gap-4">
             <a
@@ -90,11 +86,8 @@ function RootComponent() {
         </div>
       </footer>
       <noscript>
-        <h1>The Zacariah Heim Lab</h1>
-        <p>
-          I turn strange ideas into working systems. I build at the boundaries — software and
-          hardware, agents and operating systems, research and engineering.
-        </p>
+        <h1>Zacariah Heim</h1>
+        <p>I build embedded hardware, Go systems, and tools for agents.</p>
         <nav>
           <ul>
             <li>
@@ -111,7 +104,7 @@ function RootComponent() {
             </li>
           </ul>
         </nav>
-        <h2>Tier S dossiers</h2>
+        <h2>Selected projects</h2>
         <ul>
           <li>
             <a href="/builds/prometheon">Prometheon</a>
@@ -146,7 +139,7 @@ function RootComponent() {
               },
               {
                 "@type": "WebSite",
-                name: "The Zacariah Heim Lab",
+                name: "Zacariah Heim",
                 url: "https://zacariahheim.com/",
               },
             ],
@@ -157,10 +150,10 @@ function RootComponent() {
   );
 }
 
-function DossierNotFound() {
+function PageNotFound() {
   return (
     <main className="page-wrap flex min-h-[60dvh] flex-col items-start justify-center gap-4 py-16">
-      <p className="font-mono text-xs uppercase tracking-kicker text-subtle">404 // Not found</p>
+      <p className="font-mono text-xs uppercase tracking-kicker text-subtle">404</p>
       <h1 className="font-sans text-3xl font-medium tracking-tight">Page not found.</h1>
       <p className="max-w-md text-sm text-muted">
         The route you requested does not exist. Choose another page.

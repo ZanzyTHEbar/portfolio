@@ -14,9 +14,9 @@ function ThinkingPage() {
     <div className="page-wrap flex max-w-3xl flex-col gap-8 py-12">
       <header className="reveal flex flex-col gap-2">
         <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-          Thinking // Notes and essays
+          Thinking
         </p>
-        <h1 className="font-sans text-3xl font-medium tracking-tight">Written thinking</h1>
+        <h1 className="font-sans text-3xl font-medium tracking-tight">Notes</h1>
       </header>
       <ul className="reveal reveal-2 flex flex-col gap-4">
         {essays.map((e) => {

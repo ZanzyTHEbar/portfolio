@@ -27,6 +27,22 @@ function MdxP(props: any) {
   return <p className="max-w-[68ch] leading-relaxed">{props.children}</p>;
 }
 
+function MdxH2(props: any) {
+  return (
+    <h2 className="pt-4 font-mono text-xs uppercase tracking-kicker text-subtle">
+      {props.children}
+    </h2>
+  );
+}
+
+function MdxUl(props: any) {
+  return <ul className="flex flex-col gap-1.5">{props.children}</ul>;
+}
+
+function MdxLi(props: any) {
+  return <li className="font-mono text-sm text-muted">- {props.children}</li>;
+}
+
 function MdxA(props: any) {
   return (
     <a
@@ -41,7 +57,10 @@ function MdxA(props: any) {
 }
 
 const mdxComponents: Record<string, ComponentType<any>> = {
+  h2: MdxH2,
   p: MdxP,
+  ul: MdxUl,
+  li: MdxLi,
   a: MdxA,
 };
 
@@ -72,9 +91,9 @@ function EssayPage() {
       )}
 
       {linked.length > 0 && (
-        <footer aria-label="Linked systems" className="flex flex-col gap-2">
+        <footer aria-label="Related projects" className="flex flex-col gap-2">
           <h2 className="font-mono text-xs uppercase tracking-kicker text-subtle">
-            Linked systems
+            Related projects
           </h2>
           <ul className="flex flex-wrap gap-2">
             {linked.map((p) => (
@@ -97,7 +116,7 @@ function EssayPage() {
           to="/thinking"
           className="font-mono text-xs uppercase tracking-kicker text-fg underline underline-offset-4"
         >
-          ← All thinking
+          ← Notes
         </Link>
       </footer>
 

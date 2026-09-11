@@ -33,7 +33,7 @@ const STATUS_ID = "alive-status";
 
 // ponytail: fixed geometry, no graph lib; revisit with @xyflow/react past ~100 nodes.
 const NODES: NodeDef[] = [
-  { id: "strange", label: "STRANGE IDEA", x: 48, y: 157, w: 124, h: 46 },
+  { id: "idea", label: "IDEA", x: 48, y: 157, w: 124, h: 46 },
   { id: "hypothesis", label: "HYPOTHESIS", x: 196, y: 157, w: 124, h: 46 },
   { id: "constraint", label: "CONSTRAINT", x: 344, y: 157, w: 124, h: 46 },
   { id: "system", label: "SYSTEM", x: 492, y: 157, w: 110, h: 46 },
@@ -105,9 +105,9 @@ export function AliveDiagram({ items, selected, onSelect }: AliveDiagramProps) {
   };
 
   const labelFor = (node: NodeDef): string => {
-    if (isChip(node)) return `${node.label} — clear selection`;
+    if (isChip(node)) return `${node.label}: clear selection`;
     const item = linkedItem(node);
-    return item ? `${node.label} — ${item.title}` : `${node.label} — no dossier yet`;
+    return item ? `${node.label}: ${item.title}` : `${node.label}: no project linked`;
   };
 
   return (
@@ -121,12 +121,12 @@ export function AliveDiagram({ items, selected, onSelect }: AliveDiagramProps) {
       }}
     >
       <p className="mb-4 font-mono text-xs uppercase tracking-kicker text-subtle">
-        Pipeline stages link eight projects. Select any Tier S project below.
+        The diagram has eight stages. Select a Tier S project below.
       </p>
       <svg
         viewBox="0 0 960 420"
         role="group"
-        aria-label="Pipeline: strange idea to reality. Tab to a node, press Enter to pin its dossier, press Escape to clear."
+        aria-label="Project stages. Tab to a node, press Enter to select its project, press Escape to clear the selection."
         className="hidden h-auto w-full sm:block"
       >
         <ArrowMarker id="alive-arrow-desktop" />
@@ -162,7 +162,7 @@ export function AliveDiagram({ items, selected, onSelect }: AliveDiagramProps) {
             group="d"
             linked={linkedItem(node)}
             isSelected={selectedFor(node)}
-            pulse={node.id === "strange" && !reduceMotion}
+            pulse={node.id === "idea" && !reduceMotion}
             reduceMotion={reduceMotion}
             ariaLabel={labelFor(node)}
             onActivate={() => activate(node)}
@@ -174,7 +174,7 @@ export function AliveDiagram({ items, selected, onSelect }: AliveDiagramProps) {
       <svg
         viewBox={`0 0 ${MOBILE_WIDTH} ${MOBILE_HEIGHT}`}
         role="group"
-        aria-label="Pipeline: strange idea to reality. Tab to a node, press Enter to pin its dossier, press Escape to clear."
+        aria-label="Project stages. Tab to a node, press Enter to select its project, press Escape to clear the selection."
         className="block h-auto w-full sm:hidden"
       >
         <ArrowMarker id="alive-arrow-mobile" />
@@ -204,7 +204,7 @@ export function AliveDiagram({ items, selected, onSelect }: AliveDiagramProps) {
             group="m"
             linked={linkedItem(node)}
             isSelected={selectedFor(node)}
-            pulse={node.id === "strange" && !reduceMotion}
+            pulse={node.id === "idea" && !reduceMotion}
             reduceMotion={reduceMotion}
             ariaLabel={labelFor(node)}
             onActivate={() => activate(node)}
@@ -222,7 +222,7 @@ export function AliveDiagram({ items, selected, onSelect }: AliveDiagramProps) {
             <p className="mt-1 text-sm text-muted">{status.thesis}</p>
           </>
         ) : (
-          <p className="text-sm text-muted">No projects available.</p>
+          <p className="text-sm text-muted">No projects to show.</p>
         )}
       </div>
       <div
@@ -258,7 +258,7 @@ export function AliveDiagram({ items, selected, onSelect }: AliveDiagramProps) {
             ))}
           </div>
         ) : (
-          <p className="mt-2 text-sm text-muted">No projects available.</p>
+          <p className="mt-2 text-sm text-muted">No projects to show.</p>
         )}
       </div>
     </div>

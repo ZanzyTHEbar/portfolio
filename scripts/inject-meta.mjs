@@ -2,7 +2,7 @@
 //
 // Single-file SPA: there is one dist/index.html, so this script injects home
 // meta (title, description, canonical, OG/Twitter, Person+WebSite JSON-LD)
-// into dist/index.html. Per-slug meta is NOT faked as per-route HTML files —
+// into dist/index.html. Per-slug meta is NOT faked as per-route HTML files;
 // per-slug discoverability lives in public/sitemap.xml plus the ItemList
 // JSON-LD below, built from the real builds + thinking slugs parsed out of
 // content/** frontmatter (`slug:`, `title:`, `thesis:`/`summary:` lines).
@@ -16,7 +16,7 @@ const INDEX = join(ROOT, "dist", "index.html");
 const SITE = "https://zacariahheim.com";
 
 const THESIS =
-  "I turn strange ideas into working systems. I build at the boundaries — software and hardware, agents and operating systems, research and engineering.";
+  "I build embedded hardware, Go systems, and tools for agents.";
 
 // Parse a top-level `field: value` (optionally quoted) frontmatter line.
 function field(src, name) {
@@ -63,7 +63,7 @@ const itemListJson = JSON.stringify({
     },
     {
       "@type": "WebSite",
-      name: "The Zacariah Heim Lab",
+      name: "Zacariah Heim",
       url: `${SITE}/`,
     },
     {
@@ -81,11 +81,11 @@ const itemListJson = JSON.stringify({
 });
 
 const REQUIRED = [
-  ["<title>The Zacariah Heim Lab</title>", /<title>[^<]*<\/title>/],
+  ["<title>Zacariah Heim</title>", /<title>[^<]*<\/title>/],
   [`<meta name="description" content="${THESIS}" />`, /<meta\s+name="description"[^>]*>/],
   [`<link rel="canonical" href="${SITE}/" />`, /<link\s+rel="canonical"[^>]*>/],
   [
-    `<meta property="og:title" content="The Zacariah Heim Lab" />`,
+    `<meta property="og:title" content="Zacariah Heim" />`,
     /<meta\s+property="og:title"[^>]*>/,
   ],
   [

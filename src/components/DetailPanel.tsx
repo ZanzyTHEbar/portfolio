@@ -42,7 +42,7 @@ function PanelBody({ item }: { item: DetailPanelItem }) {
   return (
     <>
       <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-        Pinned project // {item.slug}
+        Selected project: {item.slug}
       </p>
       <h3 className="mt-2 font-sans text-xl font-medium tracking-tight">{item.title}</h3>
       <p className="mt-2 text-sm text-muted">{item.thesis}</p>
@@ -51,7 +51,7 @@ function PanelBody({ item }: { item: DetailPanelItem }) {
         params={{ slug: item.slug }}
         className="mt-4 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-kicker text-fg underline underline-offset-4 hover:no-underline"
       >
-        View case study →
+        View project →
       </Link>
     </>
   );

@@ -6,7 +6,7 @@ status: experimental
 dimensions:
   - research
   - experiment
-thesis: The context window's edge behavior is a geometry problem.
+thesis: Toroidal attention represents context as a 3D toroidal structure.
 stack:
   - Python
   - PyTorch
@@ -23,8 +23,8 @@ metrics: []
 
 ## System
 
-Linear attention geometries can penalize the far end of long contexts by construction. Toroidal attention models the context window as a 3D toroidal structure. It uses circular wrapping like HDD tracks and depth stacking like platters with sparse cross-depth fusion. It also has blockwise computation for long contexts and an FFT approximation path. The project is self-marked highly experimental. Its repository evaluation claims require test-suite validation.
+Toroidal attention is an experimental 3D context mechanism. It uses circular wrapping and depth stacking with sparse cross-depth fusion. Blockwise computation and an FFT approximation path address long contexts.
 
 ## Evidence
 
-- [ZanzyTHEbar/torodial-attention](https://github.com/ZanzyTHEbar/torodial-attention) — 3D toroidal attention mechanism.
+- [ZanzyTHEbar/torodial-attention](https://github.com/ZanzyTHEbar/torodial-attention): 3D toroidal attention mechanism.

@@ -2,10 +2,10 @@
 slug: poml-go
 title: poml-go
 tier: A
-status: maintained
+status: experimental
 dimensions:
   - build
-thesis: Prompts need separate structure and styling.
+thesis: A one-commit Go implementation of Microsoft POML.
 stack:
   - Go
 domains:
@@ -20,8 +20,9 @@ metrics: []
 
 ## System
 
-Prompts assembled through string concatenation can lack structure and reuse, and formatting can leak into logic. poml-go is a pure-Go implementation of Microsoft's Prompt Orchestration Markup Language. It provides HTML-like semantic components, a CSS-like styling system separate from content, a templating engine with variables and loops, and a Go SDK and CLI. The design separates agent-prompt content from styling.
+poml-go is a one-commit Go repository describing a POML parser, templates, a Go SDK, and a CLI. Its documentation uses Microsoft POML terminology and documentation paths. Maintenance beyond the initial commit is not documented.
 
 ## Evidence
 
-- [ZanzyTHEbar/poml-go](https://github.com/ZanzyTHEbar/poml-go) — pure-Go POML implementation.
+- [ZanzyTHEbar/poml-go](https://github.com/ZanzyTHEbar/poml-go): one initial commit describing a Go POML implementation.
+- [microsoft/poml](https://github.com/microsoft/poml): original POML project.

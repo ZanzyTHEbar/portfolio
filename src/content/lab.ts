@@ -1,4 +1,4 @@
-// Lab shell content: thesis, methodology, link-out strips, contact.
+// Site content: thesis, working practices, link-out strips, contact.
 // Social properties are LINKS, not feeds (DECISIONS.md D6). Handles per owner spec:
 // X ZacariahHeim, GitHub ZanzyTHEbar, LinkedIn zacariahheim.
 
@@ -14,35 +14,35 @@ export interface LinkOut {
 
 export const lab = {
   thesis:
-    "I turn strange ideas into working systems. I build at the boundaries — software and hardware, agents and operating systems, research and engineering.",
+    "I build embedded hardware, Go systems, and tools for agents.",
   howIThink: [
     {
-      title: "Define the trust boundary",
-      description: "What is allowed to do what, to whom? Write it down before code.",
+      title: "Map trust boundaries",
+      description: "Before implementation, list each actor, its data access, and its allowed actions.",
     },
     {
-      title: "Define the resource envelope",
-      description: "Memory, latency, power, money. Constraints are the design.",
+      title: "Set resource limits",
+      description: "Set memory, latency, power, and cost limits before choosing an approach.",
     },
     {
-      title: "Minimize capabilities",
-      description: "Give each part the smallest power that lets it do its job.",
+      title: "Use least privilege",
+      description: "Each component receives only the permissions needed for its task.",
     },
     {
-      title: "Make failure explicit",
-      description: "Every ugly case gets a path, a log line, and a status.",
+      title: "Handle failures explicitly",
+      description: "For expected failures, define recovery paths, logs, and user-visible status.",
     },
     {
-      title: "Instrument everything",
-      description: "If you can't see it, you can't claim it works.",
+      title: "Add instrumentation",
+      description: "Add metrics, logs, and traces that show how the system behaves.",
     },
     {
-      title: "Test the ugly cases",
-      description: "Power loss, packet loss, bad input, tired operator.",
+      title: "Test adverse conditions",
+      description: "Run tests for power loss, packet loss, invalid input, and operator mistakes.",
     },
   ] as HowIThinkStep[],
   currentlyThinking: {
-    label: "@ZacariahHeim on X",
+    label: "@ZacariahHeim",
     href: "https://x.com/ZacariahHeim",
   } as LinkOut,
   consultancy: {
@@ -50,7 +50,7 @@ export const lab = {
     href: "https://zacariahheim.com",
   } as LinkOut,
   benchScraps: [
-    { label: "Gists — bench scraps", href: "https://gist.github.com/ZanzyTHEbar" },
+    { label: "Gists", href: "https://gist.github.com/ZanzyTHEbar" },
   ] as LinkOut[],
   contact: {
     email: "",

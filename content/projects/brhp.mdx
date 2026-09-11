@@ -6,7 +6,7 @@ status: active
 dimensions:
   - build
   - research
-thesis: Planning should be durable, inspectable state with validation signals.
+thesis: BRHP records durable planning state and validation signals in OpenCode.
 stack:
   - TypeScript
   - OpenCode plugin
@@ -24,8 +24,8 @@ metrics: []
 
 ## System
 
-BRHP, Boltzmann Recursive Hierarchical Planning, is an OpenCode plugin for persistent planning sessions. Its `/brhp` command and TUI sidebar read sessions from `.opencode/brhp/brhp.db`. It models work as scopes, nodes, and validation signals, then records frontier selection and validation snapshots for inspection.
+BRHP, Boltzmann Recursive Hierarchical Planning, is an OpenCode plugin. Its `/brhp` command and TUI sidebar use sessions stored in `.opencode/brhp/brhp.db`. It models work as scopes and nodes with validation signals. Frontier selections and validation snapshots are recorded in the session.
 
 ## Evidence
 
-- [ZanzyTHEbar/brhp](https://github.com/ZanzyTHEbar/brhp) — structured, persistent planning for OpenCode.
+- [ZanzyTHEbar/brhp](https://github.com/ZanzyTHEbar/brhp): OpenCode planning plugin.

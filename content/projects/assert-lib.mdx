@@ -5,7 +5,7 @@ tier: S
 status: maintained
 dimensions:
   - build
-thesis: Assertions should be safe by default and loud only when asked.
+thesis: Go assertions with logging by default and an explicit crash-on-failure option.
 stack:
   - Go
 domains:
@@ -20,25 +20,25 @@ metrics: []
 
 ## Strange Idea
 
-An assertion library can log and continue by default, with explicit crash opt-in.
+assert-lib logs and continues by default. Crash on failure requires opt-in.
 
 ## Hypothesis
 
-Safe-by-default assertions with crash, silent, debug, and verbose modes can support systems and real-time paths where a panic would be worse than the bug.
+Given a failed assertion, default mode logs and continues; silent mode suppresses logs; debug and verbose modes add stack traces; crash-on-failure terminates only when opted in.
 
 ## Constraints
 
-- no crashing in production paths unless opted in
-- structured logging with flush controls
-- performance-critical sections need silent checks
+- Production paths use crash-on-failure only when opted in
+- Structured logging with flush controls
+- Silent checks suppress logging in selected paths
 
 ## System
 
-assert-lib is a lightweight Go assertion library that logs and continues by default. It uses package-level functions, so no instance is required. Function Options compose behavior. The library provides JSON or text formatters, crash-on-failure opt-in, silent mode, debug and verbose stack-trace modes, and testing and production presets.
+assert-lib is a Go assertion library that logs and continues by default. It uses package-level functions, so no instance is required. Function Options compose behavior. The library provides JSON and text formatters, crash-on-failure opt-in, silent mode, debug and verbose stack-trace modes, and testing and production presets.
 
 ## Reality
 
-The open-source Go module has Go Reference docs and examples. It was authored for systems and real-time use.
+The open-source Go module has Go Reference documentation and examples. It was authored for systems use.
 
 ## Decisions
 
@@ -47,10 +47,10 @@ The open-source Go module has Go Reference docs and examples. It was authored fo
 
 ## Open Questions
 
-- Do deferred/batched assertions hold up in real-time paths, or does per-assertion checking win where latency matters?
-- README lists Text, JSON, and YAML formatters. Does YAML earn its keep, or does the surface shrink to JSON + text?
-- Package-level functions vs. instance handlers: does one usage win, or do both stay?
+- Deferred and batched assertions need behavior testing.
+- The README lists Text, JSON, and YAML formatters; YAML's API status needs a decision.
+- The relationship between package-level functions and instance handlers needs a long-term API decision.
 
 ## Evidence
 
-- [ZanzyTHEbar/assert-lib](https://github.com/ZanzyTHEbar/assert-lib) — lightweight assertion library for Go.
+- [ZanzyTHEbar/assert-lib](https://github.com/ZanzyTHEbar/assert-lib): assertion library for Go.

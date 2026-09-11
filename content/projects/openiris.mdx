@@ -2,12 +2,12 @@
 slug: openiris
 title: OpenIris / EyeTrackVR
 tier: S
-status: maintained
+status: archived
 dates:
   start: "2022"
 dimensions:
   - build
-thesis: VR eye-tracking firmware that shipped in a real open-source hardware ecosystem.
+thesis: ESP32 eye-tracking firmware and Python tooling for the EyeTrackVR ecosystem.
 stack:
   - ESP32
   - C/C++
@@ -27,28 +27,32 @@ metrics: []
 
 ## Strange Idea
 
-What if VR eye tracking ran on commodity ESP32 boards?
+EyeTrackVR documents OpenIris as its official ESP32 eye-tracking firmware.
 
 ## Hypothesis
 
-If firmware handles camera streaming, networking, and OTA robustly, then hobbyist boards can carry real eye-tracking workloads.
+On ESP32 targets, the firmware streams eye data through Wi-Fi, UVC, and ESP32-S3 USB while accepting OTA updates.
 
 ## Constraints
 
-- embedded RAM
-- Wi-Fi bandwidth
-- multi-board variants
-- power
+- ESP32 target support
+- Wi-Fi and USB streaming
+- OTA delivery
 
 ## System
 
-Real eye-tracking workloads should not need exotic hardware. This work is firmware plus Python tooling for commodity ESP32 boards — camera streaming, Wi-Fi, USB (UVC/CDC), health checks, board configs — with automated multi-board releases via CI.
+OpenIris is EyeTrackVR's official ESP32 firmware and is archived. OpenIris-ESPIDF is the active ESP-IDF rewrite, updated 2026-09-08. It supports ESP32 targets with Wi-Fi and UVC streaming, and the project provides Python setup CLI tools. The ESP32-S3 supports USB streaming of eye data to a PC and OTA updates.
 
 ## Reality
 
-Shipped inside the EyeTrackVR ecosystem with releases and OTA.
+Public project material documents OpenIris in EyeTrackVR and does not identify the author's role. Both repositories publish releases.
 
 ## Open Questions
 
-- Public evidence lives in the EyeTrackVR org; no author-owned repo to link.
-- Latency/throughput figures?
+- Latency and throughput measurements remain open.
+
+## Evidence
+
+- [EyeTrackVR README](https://github.com/EyeTrackVR/EyeTrackVR/blob/main/README.md): identifies OpenIris as EyeTrackVR's official ESP32 firmware.
+- [OpenIris](https://github.com/EyeTrackVR/OpenIris): archived EyeTrackVR firmware.
+- [OpenIris-ESPIDF](https://github.com/EyeTrackVR/OpenIris-ESPIDF): active ESP-IDF rewrite, updated 2026-09-08.

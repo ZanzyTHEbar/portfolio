@@ -2,10 +2,10 @@
 slug: solidjs-charts
 title: solid-chartjs
 tier: S
-status: maintained
+status: completed
 dimensions:
   - build
-thesis: Charts should follow SolidJS reactivity.
+thesis: SolidJS bindings for Chart.js.
 stack:
   - SolidJS
   - Chart.js
@@ -20,11 +20,11 @@ metrics: []
 
 ## Strange Idea
 
-Chart.js bindings can follow SolidJS reactivity.
+Chart.js components can use SolidJS reactivity.
 
 ## Hypothesis
 
-Fine-grained bindings may update dashboards without full-chart rerenders or extra framework code.
+Explicit Chart.js registration maps selected controllers, elements, scales, and plugins to tree-shakable imports in SolidJS components.
 
 ## Constraints
 
@@ -34,17 +34,17 @@ Fine-grained bindings may update dashboards without full-chart rerenders or extr
 
 ## System
 
-solid-chartjs wraps Chart.js for SolidJS. It provides chart-type components over explicitly registered Chart.js pieces. Its tree-shakable import path lets applications bundle only the controllers and scales they use.
+solid-chartjs wraps Chart.js for SolidJS. It provides chart-type components over explicitly registered Chart.js controllers, elements, scales, and plugins. Its tree-shakable import path includes the controllers and scales selected by an application.
 
 ## Reality
 
-The package is published to npm with versioned releases, a demo site, and usage docs. The repository under the author's account is a maintained fork. Its differences from upstream are unstated here.
+The package is published to npm with a demo site and usage documentation. ZanzyTHEbar/solid-chartjs is a fork last pushed on 18 January 2025. Its differences from upstream are unknown.
 
 ## Open Questions
 
-- Does this fork carry fixes, tracking, or serve as a personal mirror?
-- How do bundle size and update behavior compare with current Chart.js releases?
+- The fork's fixes, upstream tracking, and role as a personal mirror need clarification.
+- Current Chart.js releases need bundle-size and update-behavior comparison.
 
 ## Evidence
 
-- [ZanzyTHEbar/solid-chartjs](https://github.com/ZanzyTHEbar/solid-chartjs) — SolidJS component for Chart.js.
+- [ZanzyTHEbar/solid-chartjs](https://github.com/ZanzyTHEbar/solid-chartjs): SolidJS component for Chart.js.

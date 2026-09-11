@@ -15,10 +15,7 @@ function ContactPage() {
   return (
     <div className="page-wrap flex max-w-3xl flex-col gap-8 py-12">
       <header className="reveal flex flex-col gap-2">
-        <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-          Contact // Open channel
-        </p>
-        <h1 className="font-sans text-3xl font-medium tracking-tight">Say hello</h1>
+        <h1 className="font-sans text-3xl font-medium tracking-tight">Contact</h1>
       </header>
       {/* lab.contact.email is empty: render nothing, never guess an address. */}
       {contact.email && (

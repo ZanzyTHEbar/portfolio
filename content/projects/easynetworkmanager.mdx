@@ -5,7 +5,7 @@ tier: S
 status: maintained
 dimensions:
   - build
-thesis: ESP32 devices should join networks and expose APIs through one declarative manager.
+thesis: A C++17 manager for embedded network setup and device APIs.
 stack:
   - ESP32
   - ESP8266
@@ -28,25 +28,25 @@ metrics: []
 
 ## Strange Idea
 
-What if connecting an ESP32 to WiFi, exposing a REST API, pushing OTA updates, and streaming telemetry were one declarative library instead of five wiring jobs?
+A declarative C++17 library coordinates ESP32 network setup, REST APIs, OTA updates, and telemetry.
 
 ## Hypothesis
 
-If an embedded framework owns the full lifecycle — connection, provisioning, API surface, and updates — behind a single configuration call, then device firmware turns into application logic instead of networking plumbing.
+On ESP32, ESP8266, and M5Stack targets, one initialization call configures provisioning, API, telemetry, and update behavior.
 
 ## Constraints
 
-- microcontroller memory and flash budgets (ESP32/ESP8266, M5Stack)
-- captive-portal provisioning on-device
-- resilient reconnects without user intervention
+- ESP32, ESP8266, and M5Stack memory and flash budgets
+- On-device captive-portal provisioning
+- Reconnect behavior without user intervention
 
 ## System
 
-Every ESP32 project re-solves the same stack: WiFi provisioning, mDNS, REST, WebSockets, OTA, MQTT, and state in between. EasyNetworkManager is a C++17 IoT framework for ESP32/ESP8266/M5Stack that collapses all of it behind one initialization call — a WiFiManager-based web portal with AP fallback, mDNS discovery, Async OTA updates, REST and WebSocket servers, MQTT publishing, and persistent configuration with state management across dedicated handler classes.
+EasyNetworkManager is a C++17 IoT framework for ESP32, ESP8266, and M5Stack. One initialization call configures a WiFiManager-based web portal with AP fallback, mDNS discovery, Async OTA updates, REST and WebSocket servers, MQTT publishing, and persistent configuration managed by dedicated handler classes.
 
 ## Reality
 
-In the PlatformIO registry as a versioned library with example sketches, docs site, and GPL-3.0 license; in production use inside OpenIris-era deployments, with ESP32-C3 support in development.
+The versioned MIT library is listed in the PlatformIO registry with example sketches and a documentation site. It is used in OpenIris-era deployments, and ESP32-C3 support remains in development.
 
 ## Decisions
 
@@ -55,10 +55,10 @@ In the PlatformIO registry as a versioned library with example sketches, docs si
 
 ## Open Questions
 
-- `POST` JSON handling is still in development in the README — what breaks until it lands?
-- ESP8266 support is beta with manual dependency installs; ESP32-C3 is untested — do both converge or does one get cut?
-- Docs site is being built — does it replace the examples folder as the onboarding path?
+- `POST` JSON handling remains in development.
+- ESP8266 support is beta and requires manual dependency installation; ESP32-C3 support still needs testing.
+- The documentation site is still being built, and the examples folder's place in it needs definition.
 
 ## Evidence
 
-- [ZanzyTHEbar/EasyNetworkManager](https://github.com/ZanzyTHEbar/EasyNetworkManager) — easy network manager for the ESP32.
+- [ZanzyTHEbar/EasyNetworkManager](https://github.com/ZanzyTHEbar/EasyNetworkManager): network manager for ESP32 devices.

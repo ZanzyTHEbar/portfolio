@@ -7,7 +7,7 @@ dates:
   start: "2025"
 dimensions:
   - experiment
-thesis: Capability isolation experiments for systems that must not misbehave.
+thesis: WyrmLock is an experimental Go fork of Roshan-R/applock.
 stack:
   - Go
   - Security
@@ -22,8 +22,13 @@ metrics: []
 
 ## System
 
-Some systems must not misbehave, and good intentions do not enforce boundaries. WyrmLock is security and system-isolation experiments around capability boundaries.
+ZanzyTHEbar/WyrmLock forks Roshan-R/applock. The fork adds Go-focused work, including a WyrmLock command, configurable hash verification, and project-path migration.
 
 ## Open Questions
 
-- Public status of the Linux applocker work; no author-owned repo is linked here.
+- Production readiness of the Linux application-locking work.
+
+## Evidence
+
+- [ZanzyTHEbar/WyrmLock](https://github.com/ZanzyTHEbar/WyrmLock): fork commits add Go-focused WyrmLock work.
+- [Roshan-R/applock](https://github.com/Roshan-R/applock): upstream Linux application locker.

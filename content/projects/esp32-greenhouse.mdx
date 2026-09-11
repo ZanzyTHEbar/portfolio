@@ -6,7 +6,7 @@ status: active
 dimensions:
   - build
   - experiment
-thesis: Indoor food should grow in a cheap modular tower anyone can print, wire, and flash.
+thesis: A printable ESP32-controlled indoor garden tower with a basic-build cost target.
 stack:
   - ESP32
   - Arduino Core
@@ -27,42 +27,42 @@ metrics: []
 
 ## Strange Idea
 
-What if a one-meter tower garden — printable, bucket-based, ESP32-driven — could grow food indoors for under twenty dollars of parts?
+A one-meter, printable, bucket-based garden tower has a basic-build target under $20.
 
 ## Hypothesis
 
-If the tower is modular and 3D-printable, the electronics are commodity ESP32, and the firmware flashes from a browser without touching code, then automated hydroponics stops being a kit purchase and becomes a weekend build.
+For a 20-liter bucket tower, modular 3D-printable parts, ESP32 control, and browser flashing define build cost, setup steps, and automated garden control.
 
 ## Constraints
 
-- basic-build cost target under $20
-- approachability for non-coders (flash from the docs site, no IDE)
-- real growing: light, water, nutrients, airflow
+- Basic-build cost target under $20
+- Access for non-coders through browser flashing, without an IDE
+- Light, water, nutrients, and airflow
 
 ## System
 
-Commercial grow towers price out the people most interested in building them. This is an open-source modular tower garden: interlocking 3D-printable segments on a 20-liter bucket adapter, with an optional aeroponics high-pressure nozzle variant. An ESP32 runs lighting, pumps, fans, and sensors; firmware flashes over WebSerial straight from the browser, and the tower reports into Home Assistant over MQTT. Power and sensing ride a custom PCB with off-the-shelf fallbacks.
+ESP32GreenhouseTowerDIY is an open-source modular tower garden with interlocking 3D-printable segments on a 20-liter bucket adapter. An optional aeroponics variant uses a high-pressure nozzle. An ESP32 controls lighting, pumps, fans, and sensors. The design uses WebSerial for browser flashing and MQTT for Home Assistant reporting. Power and sensing use a custom PCB with off-the-shelf fallbacks.
 
 ## Reality
 
-Active DIY project with video demos and a kitted roadmap; the PCB is in prototype phase and the docs site is still being finished.
+The active DIY project has video demos, and kitting remains planned. The PCB is in prototype phase, and the documentation site is unfinished.
 
 ## Decisions
 
 - Firmware moved from MicroPython to Arduino Core for more sensors, faster loops, and lower power.
-- Website flashing over user-downloaded code, so non-coders can build one.
+- Browser-based flashing was selected to support non-coders.
 
 ## Failure
 
-- Scope keeps sprawling across tower, PCB, firmware, and docs; the PCB and docs lag the tower itself.
+- Scope spans the tower, PCB, firmware, and documentation. The PCB and documentation lag the tower.
 
 ## Open Questions
 
-- PCB files are still prototype — does the custom board ship or do off-the-shelf fallbacks become the real build?
-- Docs site and WebSerial flashing are unfinished — what stays manual until they land?
-- Arduino Core is now the main codebase with MicroPython legacy beside it — does the MicroPython path get dropped?
-- MQTT discovery assumes one broker on the LAN — what breaks in multi-broker or no-mDNS homes?
+- PCB files remain prototypes, and the custom board's role against off-the-shelf fallbacks still needs a decision.
+- The incomplete documentation site and WebSerial flashing flow leave some build steps manual.
+- Arduino Core is the main codebase, while legacy MicroPython remains beside it; the MicroPython path needs a decision.
+- MQTT discovery assumes one broker on the LAN; behavior with multiple brokers or without mDNS needs definition.
 
 ## Evidence
 
-- [ZanzyTHEbar/ESP32GreenhouseTowerDIY](https://github.com/ZanzyTHEbar/ESP32GreenhouseTowerDIY) — open-source DIY automated tower garden.
+- [ZanzyTHEbar/ESP32GreenhouseTowerDIY](https://github.com/ZanzyTHEbar/ESP32GreenhouseTowerDIY): open-source DIY automated tower garden.

@@ -3,7 +3,6 @@ import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import * as jsxRuntime from "react/jsx-runtime";
 import { projects, type Project } from "@/.velite/index.js";
-import { lab } from "@/content/lab";
 
 export const Route = createFileRoute("/builds/$slug")({
   component: BuildPage,
@@ -13,10 +12,7 @@ type MdxProps = { components?: Record<string, ComponentType<any>> };
 
 // Velite s.mdx() emits compiled MDX code that reads the jsx runtime off
 // arguments[0] and defaults to plain tags unless a `components` map is
-// passed. Fixed section order comes from the MDX source itself (Strange
-// Idea → Hypothesis → Constraints → System → Reality → Decisions →
-// Failure → Open Questions → Evidence); absent sections render nothing
-// because they are absent from the body.
+// passed. MDX controls section order; absent sections render nothing.
 function compileMdx(code: string): ComponentType<MdxProps> {
   try {
     const factory = new Function(code) as (runtime: unknown) => {
@@ -93,13 +89,12 @@ function BuildPage() {
   const at = tierGroup.findIndex((p) => p.slug === project.slug);
   const prev = at > 0 ? tierGroup[at - 1] : undefined;
   const next = at >= 0 && at < tierGroup.length - 1 ? tierGroup[at + 1] : undefined;
-  const howIThink = lab.howIThink[project.priority % lab.howIThink.length] ?? lab.howIThink[0];
 
   return (
     <article className="page-wrap flex max-w-3xl flex-col gap-8 py-12">
       <header className="flex flex-col gap-3">
         <p className="font-mono text-xs uppercase tracking-kicker text-subtle">
-          Tier {project.tier} // Status {project.status}
+          Tier {project.tier} · Status: {project.status}
         </p>
         <h1 className="font-sans text-3xl font-medium tracking-tight">{project.title}</h1>
         {dates && (
@@ -145,23 +140,9 @@ function BuildPage() {
         </div>
       )}
 
-      {howIThink && (
-        <p className="text-sm text-muted">
-          How I think —{" "}
-          <Link
-            to="/"
-            className="font-mono text-xs uppercase tracking-kicker text-fg underline underline-offset-4"
-          >
-            {howIThink.title} →
-          </Link>
-        </p>
-      )}
-
       {related.length > 0 && (
         <footer aria-label="Related systems" className="flex flex-col gap-2">
-          <h2 className="font-mono text-xs uppercase tracking-kicker text-subtle">
-            Related systems
-          </h2>
+          <h2 className="font-mono text-xs uppercase tracking-kicker text-subtle">Related projects</h2>
           <ul className="flex flex-wrap gap-2">
             {related.map((r) => (
               <li key={r.slug}>
