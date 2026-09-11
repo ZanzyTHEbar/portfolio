@@ -79,7 +79,9 @@ function EssayPage() {
   return (
     <article className="page-wrap flex max-w-3xl flex-col gap-6 py-12">
       <header className="reveal flex flex-col gap-3">
-        <p className="font-mono text-xs uppercase tracking-kicker text-subtle">{essay.date}</p>
+        {essay.date && (
+          <p className="font-mono text-xs uppercase tracking-kicker text-subtle">{essay.date}</p>
+        )}
         <h1 className="font-sans text-3xl font-medium tracking-tight">{essay.title}</h1>
         <p className="text-base text-muted">{essay.summary}</p>
       </header>
@@ -128,7 +130,7 @@ function EssayPage() {
             "@type": "Article",
             headline: essay.title,
             description: essay.summary,
-            datePublished: essay.date,
+            ...(essay.date ? { datePublished: essay.date } : {}),
           }),
         }}
       />

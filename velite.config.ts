@@ -39,7 +39,7 @@ const notes = defineCollection({
   pattern: "notes/*.mdx",
   schema: s.object({
     ...editorial,
-    date: s.string(),
+    date: s.string().optional(),
     summary: s.string(),
     projectSlugs: s.array(s.string()).default([]),
     body: s.mdx(),

@@ -5,8 +5,12 @@ export const Route = createFileRoute("/thinking/")({
   component: ThinkingPage,
 });
 
-const byNewest = (a: Note, b: Note) =>
-  b.date.localeCompare(a.date) || a.title.localeCompare(b.title);
+const byNewest = (a: Note, b: Note) => {
+  if (a.date && b.date) return b.date.localeCompare(a.date) || a.title.localeCompare(b.title);
+  if (a.date) return -1;
+  if (b.date) return 1;
+  return a.title.localeCompare(b.title);
+};
 
 function ThinkingPage() {
   const essays = [...notes].sort(byNewest);
@@ -26,7 +30,9 @@ function ThinkingPage() {
             .filter((p) => p !== undefined);
           return (
             <li key={e.slug} className="hairline bg-elevated p-5">
-              <p className="font-mono text-xs uppercase tracking-kicker text-subtle">{e.date}</p>
+              {e.date && (
+                <p className="font-mono text-xs uppercase tracking-kicker text-subtle">{e.date}</p>
+              )}
               <h2 className="mt-2 font-sans text-xl font-medium tracking-tight">
                 <Link
                   to="/thinking/$slug"
