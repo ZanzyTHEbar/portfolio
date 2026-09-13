@@ -93,7 +93,11 @@ const REQUIRED = [
     /<meta\s+property="og:description"[^>]*>/,
   ],
   [`<meta property="og:url" content="${SITE}/" />`, /<meta\s+property="og:url"[^>]*>/],
-  [`<meta property="og:image" content="${SITE}/og.svg" />`, /<meta\s+property="og:image"[^>]*>/],
+  [`<meta property="og:image" content="${SITE}/og.png" />`, /<meta\s+property="og:image"[^>]*>/],
+  [`<meta property="og:image:width" content="1200" />`, /<meta\s+property="og:image:width"[^>]*>/],
+  [`<meta property="og:image:height" content="630" />`, /<meta\s+property="og:image:height"[^>]*>/],
+  [`<meta property="og:image:type" content="image/png" />`, /<meta\s+property="og:image:type"[^>]*>/],
+  [`<meta name="twitter:image" content="${SITE}/og.png" />`, /<meta\s+name="twitter:image"[^>]*>/],
   [
     `<meta name="twitter:card" content="summary_large_image" />`,
     /<meta\s+name="twitter:card"[^>]*>/,
