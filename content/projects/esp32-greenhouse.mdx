@@ -41,27 +41,12 @@ For a 20-liter bucket tower, modular 3D-printable parts, ESP32 control, and brow
 
 ## System
 
-ESP32GreenhouseTowerDIY is an open-source modular tower garden with interlocking 3D-printable segments on a 20-liter bucket adapter. An optional aeroponics variant uses a high-pressure nozzle. An ESP32 controls lighting, pumps, fans, and sensors. The design uses WebSerial for browser flashing and MQTT for Home Assistant reporting. Power and sensing use a custom PCB with off-the-shelf fallbacks.
-
-## Reality
-
-The active DIY project has video demos, and kitting remains planned. The PCB is in prototype phase, and the documentation site is unfinished.
+ESP32GreenhouseTowerDIY is an open-source modular tower garden with interlocking 3D-printable segments on a 20-liter bucket adapter. An optional aeroponics variant uses a high-pressure nozzle. An ESP32 controls lighting, pumps, fans, and sensors. The design uses WebSerial for browser flashing and MQTT for Home Assistant reporting. Power and sensing use a custom PCB with off-the-shelf fallbacks. Arduino Core is the main codebase; MicroPython remains as a legacy implementation. MQTT discovery uses mDNS to locate a broker on the local network.
 
 ## Decisions
 
 - Firmware moved from MicroPython to Arduino Core for more sensors, faster loops, and lower power.
 - Browser-based flashing was selected to support non-coders.
-
-## Failure
-
-- Scope spans the tower, PCB, firmware, and documentation. The PCB and documentation lag the tower.
-
-## Open Questions
-
-- PCB files remain prototypes, and the custom board's role against off-the-shelf fallbacks still needs a decision.
-- The incomplete documentation site and WebSerial flashing flow leave some build steps manual.
-- Arduino Core is the main codebase, while legacy MicroPython remains beside it; the MicroPython path needs a decision.
-- MQTT discovery assumes one broker on the LAN; behavior with multiple brokers or without mDNS needs definition.
 
 ## Evidence
 

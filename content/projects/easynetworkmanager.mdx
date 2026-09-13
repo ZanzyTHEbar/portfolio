@@ -42,22 +42,12 @@ On ESP32, ESP8266, and M5Stack targets, one initialization call configures provi
 
 ## System
 
-EasyNetworkManager is a C++17 IoT framework for ESP32, ESP8266, and M5Stack. One initialization call configures a WiFiManager-based web portal with AP fallback, mDNS discovery, Async OTA updates, REST and WebSocket servers, MQTT publishing, and persistent configuration managed by dedicated handler classes.
-
-## Reality
-
-The versioned MIT library is listed in the PlatformIO registry with example sketches and a documentation site. It is used in OpenIris-era deployments, and ESP32-C3 support remains in development.
+EasyNetworkManager is a C++17 IoT framework for ESP32, ESP8266, and M5Stack. One initialization call configures a WiFiManager-based web portal with AP fallback, mDNS discovery, Async OTA updates, REST and WebSocket servers, MQTT publishing, and persistent configuration managed by dedicated handler classes. ESP8266 support is beta and requires manual dependency installation.
 
 ## Decisions
 
 - C++17 throughout, accepting the toolchain requirement for modern language features.
 - PlatformIO-first distribution so the library installs like any other dependency.
-
-## Open Questions
-
-- `POST` JSON handling remains in development.
-- ESP8266 support is beta and requires manual dependency installation; ESP32-C3 support still needs testing.
-- The documentation site is still being built, and the examples folder's place in it needs definition.
 
 ## Evidence
 

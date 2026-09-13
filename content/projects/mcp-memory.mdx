@@ -23,13 +23,7 @@ related:
   - mealie-mcp
 featured: true
 priority: 4
-metrics:
-  - label: Speed vs TypeScript original
-    value: "2× (author-reported, unverified)"
-    verified: false
-  - label: Memory vs TypeScript original
-    value: "40% lower (author-reported, unverified)"
-    verified: false
+metrics: []
 ---
 
 ## Strange Idea
@@ -38,26 +32,16 @@ Persistent agent memory runs from a single Go binary backed by libSQL.
 
 ## Hypothesis
 
-Under equivalent ingest, recall, and hybrid-search workloads, does the Go/libSQL implementation complete operations faster and use less memory than the TypeScript original?
+MCP Memory supports vector, text, and hybrid search.
 
 ## Constraints
 
-- memory footprint
 - zero runtime deps
 - multi-project isolation
 
 ## System
 
-MCP Memory is a single Go binary on libSQL with vector and hybrid search, knowledge graphs, multi-project isolation, and metrics.
-
-## Reality
-
-The repository claims 2× performance and 40% lower memory than the TypeScript original. Both figures remain unverified.
-
-## Open Questions
-
-- The repository contains database benchmark tests, but no comparative harness supporting the 2x and 40% claims.
-- Comparative results for ingest, recall, and hybrid search are not documented.
+MCP Memory is a single Go binary on libSQL with vector and hybrid search, knowledge graphs, and multi-project isolation. It includes database benchmarks for vector, text, and hybrid search.
 
 ## Evidence
 

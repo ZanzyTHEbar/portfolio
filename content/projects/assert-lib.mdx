@@ -34,22 +34,12 @@ Given a failed assertion, default mode logs and continues; silent mode suppresse
 
 ## System
 
-assert-lib is a Go assertion library that logs and continues by default. It uses package-level functions, so no instance is required. Function Options compose behavior. The library provides JSON and text formatters, crash-on-failure opt-in, silent mode, debug and verbose stack-trace modes, and testing and production presets.
-
-## Reality
-
-The open-source Go module has Go Reference documentation and examples. It was authored for systems use.
+assert-lib is a Go assertion library that logs and continues by default. Package-level functions use Function Options to configure behavior. The library provides deferred assertions; Text, JSON, and YAML formatters; optional instance handlers; crash-on-failure opt-in; silent mode; debug and verbose stack-trace modes; and testing and production presets.
 
 ## Decisions
 
 - Crashing requires explicit opt-in.
 - Function Options compose behavior.
-
-## Open Questions
-
-- Deferred and batched assertions need behavior testing.
-- The README lists Text, JSON, and YAML formatters; YAML's API status needs a decision.
-- The relationship between package-level functions and instance handlers needs a long-term API decision.
 
 ## Evidence
 

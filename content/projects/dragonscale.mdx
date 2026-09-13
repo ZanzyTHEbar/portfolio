@@ -33,29 +33,17 @@ A Go binary can combine a narrow agent runtime with explicit trust boundaries.
 
 ## Hypothesis
 
-In ZanzyTHEbar/dragonscale, SecureBus documents tool capability declarations, secret injection, and output scanning around the in-process main runtime; network and filesystem enforcement remain follow-on work for the Isolated Tool Runtime.
+In ZanzyTHEbar/dragonscale, the Isolated Tool Runtime routes tool calls through SecureBus.
 
 ## Constraints
 
 - Tools declare capabilities to SecureBus.
 - SecureBus injects secrets and scans tool output.
 - The main runtime executes in process.
-- Network and filesystem enforcement remain follow-on isolation work.
-- Current MCP support is not documented.
 
 ## System
 
-ZanzyTHEbar/dragonscale is a fork of sipeed/picoclaw. It is a compact Go single binary with persistent memory, DAG execution, SecureBus, and an Isolated Tool Runtime. SecureBus documents tool capability declaration, secret injection, and output scanning. The main runtime executes in process, while network and filesystem enforcement are follow-on work. Current MCP support is not documented.
-
-## Reality
-
-Public documentation describes SecureBus and the Isolated Tool Runtime. Current MCP support is not documented.
-
-## Open Questions
-
-- No public benchmark or evaluation figure is documented.
-- Daemon and WASM isolation remain follow-on work for network and filesystem enforcement.
-- Whether libSQL backs an outbox table and what role it serves still need definition.
+ZanzyTHEbar/dragonscale is a fork of sipeed/picoclaw. It is a compact Go single-binary runtime for Linux and embedded environments with persistent memory and DAG execution. Its Isolated Tool Runtime routes tool calls through SecureBus for capability checks, secret injection, and LLM-facing output scanning. The main runtime executes in process, and the documented Isolated Tool Runtime does not enforce network or filesystem boundaries.
 
 ## Evidence
 

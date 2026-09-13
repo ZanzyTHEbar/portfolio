@@ -8,5 +8,3 @@ thesis: "Transactional outbox delivery through NATS and SQL."
 ---
 
 A transactional outbox writes an event to SQL in the same transaction as the state change, then relays it through NATS.
-
-The delivery choice remains open: at-least-once delivery with idempotent consumers or exactly-once delivery. The location of the outbox table in a libSQL runtime also remains open.

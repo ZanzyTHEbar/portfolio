@@ -35,22 +35,12 @@ Across process boundaries, wrapped Go faults expose a stable application code al
 
 ## System
 
-faults-go is a Go library for structured application faults. `New` and `Wrap` create and wrap faults with normalized key/value details. `CodeOf` and `IsCode` inspect codes. Process-wide registration maps application codes to transport codes. The library builds on errbuilder-go for transport-aware error values and integrates assert-lib reporting.
-
-## Reality
-
-The open-source Go module has CI, Go Reference documentation, and an MIT license. It is part of a three-library set with errbuilder-go and assert-lib.
+faults-go is a Go library for structured application faults. `New` and `Wrap` create and wrap faults with normalized key/value details. `CodeOf` and `IsCode` inspect codes. Project-specific codes can be registered process-wide during startup. The library builds on errbuilder-go for transport-aware error values and integrates assert-lib reporting.
 
 ## Decisions
 
 - Durable application codes and transport codes remain separate.
 - The library builds on errbuilder-go and assert-lib.
-
-## Open Questions
-
-- Process-wide code-to-transport registration uses global state; its behavior for multi-package callers needs testing.
-- The three-module boundary among faults-go, errbuilder-go, and assert-lib needs a long-term decision.
-- Fault-code reuse beyond validation and database examples needs documented guidance.
 
 ## Evidence
 
