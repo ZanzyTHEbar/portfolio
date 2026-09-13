@@ -1,0 +1,32 @@
+---
+slug: coolify-deploy-gateway
+title: Coolify Deploy Gateway
+tier: A
+status: active
+dates:
+  start: "2026"
+dimensions:
+  - build
+thesis: Signed GitHub webhook gateway that forwards validated pushes to Coolify's deploy API over private LAN.
+stack:
+  - Go
+  - Docker
+  - Coolify
+  - GitHub Webhooks
+domains:
+  - software
+related:
+  - mcp-edge-gateway
+  - coder-opencode-sandbox
+featured: false
+priority: 27
+metrics: []
+---
+
+## System
+
+Coolify Deploy Gateway is a stdlib-only Go HTTP ingress for private Coolify deployments. A single route accepts GitHub push webhooks, verifies the HMAC signature against a per-target secret, checks the repository and ref allowlist, and forwards validated events to the Coolify deploy API. Payloads are capped at 1 MiB, duplicate deliveries are dropped by a short-lived body-fingerprint cache, and the Coolify client only dials private origins with a deploy-scoped token. Docker ships a distroless image with a healthcheck endpoint.
+
+## Evidence
+
+- [ZanzyTHEbar/coolify-deploy-gateway](https://github.com/ZanzyTHEbar/coolify-deploy-gateway): Signed webhook ingress for private Coolify deploys.
